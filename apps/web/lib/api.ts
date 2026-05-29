@@ -1,6 +1,6 @@
 import { TOKEN } from "./auth";
 
-const API_URL = "http://localhost:5050";
+const API_URL = "https://arkdev-api.onrender.com";
 
 export async function getProjects() {
   const response = await fetch(
@@ -36,7 +36,7 @@ export async function generateProject(
   idea: string
 ) {
   const response = await fetch(
-    "http://localhost:5050/ai/project",
+    "https://arkdev-api.onrender.com/ai/project",
     {
       method: "POST",
       headers: {
