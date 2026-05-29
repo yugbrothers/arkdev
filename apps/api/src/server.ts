@@ -275,3 +275,22 @@ app.post(
     });
   }
 );
+
+app.get(
+  "/workspaces/:workspaceId/projects",
+  authMiddleware,
+  async (req, res) => {
+
+    const projects =
+      await prisma.project.findMany({
+        where: {
+          workspaceId: String(
+            req.params.workspaceId
+          )
+        }
+      });
+
+    res.json(projects);
+  }
+);
+
