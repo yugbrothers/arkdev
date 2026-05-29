@@ -1,0 +1,13 @@
+{
+  "name": "arkdev",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "echo Workspace ready",
+    "build": "echo Build configured",
+    "start": "echo Start configured"
+  }
+}

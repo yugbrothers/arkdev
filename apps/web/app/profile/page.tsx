@@ -1,0 +1,3 @@
+export default function ProfilePage() {
+  return <h1 className="p-8 text-4xl">Profile</h1>;
+}
