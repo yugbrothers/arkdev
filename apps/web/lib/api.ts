@@ -51,3 +51,33 @@ export async function generateProject(
 
   return response.json();
 }
+
+export async function getWorkspaces() {
+  const response = await fetch(
+    `${API_URL}/workspaces`,
+    {
+      headers: {
+        Authorization: `Bearer ${TOKEN}`
+      },
+      cache: "no-store"
+    }
+  );
+
+  return response.json();
+}
+
+export async function getWorkspaceProjects(
+  workspaceId: string
+) {
+  const response = await fetch(
+    `${API_URL}/workspaces/${workspaceId}/projects`,
+    {
+      headers: {
+        Authorization: `Bearer ${TOKEN}`
+      },
+      cache: "no-store"
+    }
+  );
+
+  return response.json();
+}
