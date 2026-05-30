@@ -1,17 +1,49 @@
+"use client";
+
+import ThemeToggle from "@/components/ui/theme-toggle";
+
 export default function Navbar() {
   return (
-    <header className="h-16 border-b border-zinc-800 bg-black text-white">
-      <div className="h-full max-w-7xl mx-auto flex items-center justify-between px-6">
-        <div className="font-bold text-xl">
-          ArkDev
+    <header
+      className="
+      sticky
+      top-0
+      z-50
+      backdrop-blur-xl
+      border-b
+      border-white/10
+      bg-black/20
+      "
+    >
+      <div
+        className="
+        max-w-7xl
+        mx-auto
+        px-6
+        h-16
+        flex
+        items-center
+        justify-between
+        "
+      >
+        <div className="flex items-center gap-3">
+          <div
+            className="
+            h-10
+            w-10
+            rounded-xl
+            bg-gradient-to-r
+            from-blue-500
+            to-purple-600
+            "
+          />
+
+          <h1 className="text-2xl font-bold">
+            ArkDev
+          </h1>
         </div>
 
-        <nav className="flex gap-6 text-sm">
-          <a href="/dashboard">Dashboard</a>
-          <a href="/projects">Projects</a>
-          <a href="/workspace">Workspace</a>
-          <a href="/analytics">Analytics</a>
-        </nav>
+        <ThemeToggle />
       </div>
     </header>
   );

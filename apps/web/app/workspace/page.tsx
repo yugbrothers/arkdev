@@ -1,38 +1,19 @@
-import { getWorkspaces } from "@/lib/api";
-
-export default async function WorkspacePage() {
-
-  const workspaces =
-    await getWorkspaces();
-
+export default function WorkspacePage() {
   return (
-    <main className="p-8">
-
-      <h1 className="text-4xl font-bold">
-        Workspaces
+    <main className="max-w-7xl mx-auto p-8">
+      <h1 className="text-4xl font-bold mb-8">
+        Workspace
       </h1>
 
-      <div className="mt-8 space-y-4">
+      <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
+        <h2 className="text-2xl font-bold">
+          ArkDev Workspace
+        </h2>
 
-        {workspaces.map(
-          (workspace: any) => (
-            <div
-              key={workspace.id}
-              className="border border-zinc-800 rounded-xl p-6"
-            >
-              <h2 className="text-2xl">
-                {workspace.name}
-              </h2>
-
-              <p className="text-zinc-500 mt-2">
-                {workspace.id}
-              </p>
-            </div>
-          )
-        )}
-
+        <p className="opacity-70 mt-3">
+          Manage projects, tasks and AI workflows.
+        </p>
       </div>
-
     </main>
   );
 }

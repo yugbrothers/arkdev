@@ -1,38 +1,21 @@
-import { getProjects } from "@/lib/api";
-
-export default async function ProjectsPage() {
-
-  const projects =
-    await getProjects();
-
+export default function ProjectsPage() {
   return (
-    <main className="p-8">
-
-      <h1 className="text-4xl font-bold">
+    <main className="max-w-7xl mx-auto p-8">
+      <h1 className="text-4xl font-bold mb-8">
         Projects
       </h1>
 
-      <div className="mt-8 space-y-4">
+      <div className="grid gap-6">
+        <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h2 className="text-xl font-bold">
+            AI SaaS Platform
+          </h2>
 
-        {projects.map(
-          (project: any) => (
-            <div
-              key={project.id}
-              className="border border-zinc-800 rounded-xl p-6"
-            >
-              <h2 className="text-2xl">
-                {project.name}
-              </h2>
-
-              <p className="mt-2">
-                {project.description}
-              </p>
-            </div>
-          )
-        )}
-
+          <p className="opacity-70 mt-2">
+            First production project.
+          </p>
+        </div>
       </div>
-
     </main>
   );
 }
