@@ -1,17 +1,23 @@
-import StatCard from "@/components/dashboard/StatCard";
+import ProductivityChart
+from "@/components/charts/ProductivityChart";
 
 export default function AnalyticsPage() {
   return (
     <main className="max-w-7xl mx-auto p-8">
-      <h1 className="text-4xl font-bold mb-8">
+      <h1 className="text-5xl font-bold mb-8">
         Analytics
       </h1>
 
-      <div className="grid md:grid-cols-4 gap-6">
-        <StatCard title="Users" value="152" />
-        <StatCard title="Projects" value="31" />
-        <StatCard title="Tasks" value="487" />
-        <StatCard title="AI Requests" value="1200" />
+      <div
+        className="
+        rounded-3xl
+        border
+        border-white/10
+        bg-white/5
+        p-8
+        "
+      >
+        <ProductivityChart />
       </div>
     </main>
   );
