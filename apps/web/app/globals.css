@@ -403,3 +403,37 @@ nav a:hover{
 .nav-ai:hover{
   filter:blur(.4px);
 }
+
+.nav-group{
+  position:relative;
+  cursor:pointer;
+}
+
+.nav-dropdown{
+  position:absolute;
+  top:40px;
+  left:0;
+
+  min-width:220px;
+
+  display:none;
+
+  padding:16px;
+
+  border-radius:20px;
+
+  backdrop-filter:blur(20px);
+
+  background:rgba(0,0,0,.8);
+
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.nav-dropdown a{
+  display:block;
+  padding:10px 0;
+}
+
+.nav-group:hover .nav-dropdown{
+  display:block;
+}
