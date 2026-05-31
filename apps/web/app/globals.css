@@ -455,3 +455,43 @@ nav a:hover{
   visibility:unset;
   transform:none;
 }
+
+/* PRIMARY 1150 */
+
+nav{
+  display:flex;
+  align-items:center;
+}
+
+nav a,
+.nav-group{
+  height:40px;
+  display:flex;
+  align-items:center;
+}
+
+.nav-group span{
+  display:flex;
+  align-items:center;
+  height:40px;
+}
+
+.mascot-music{
+  animation:
+  mascotFloat 3s ease-in-out infinite;
+}
+
+@keyframes mascotFloat{
+
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-10px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+}
