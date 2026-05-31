@@ -32,7 +32,7 @@ export default function ShowcasePage() {
             src={`/reference/posters/${poster}`}
             alt=""
             className="
-            rounded-3xl
+            rounded-3xl ark-hover-card
             hover:scale-105
             hover:-rotate-1
             transition-all

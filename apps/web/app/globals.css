@@ -268,3 +268,45 @@ nav a:hover{
     rotate(360deg);
   }
 }
+
+.ark-gradient-text{
+  background:
+  linear-gradient(
+    90deg,
+    #ffffff,
+    #a855f7,
+    #3b82f6
+  );
+
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.ark-hover-card{
+  transition:all .5s ease;
+}
+
+.ark-hover-card:hover{
+  transform:
+  translateY(-10px)
+  scale(1.03);
+}
+
+.ark-navbar-link{
+  position:relative;
+}
+
+.ark-navbar-link::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0;
+  height:2px;
+  background:white;
+  transition:.3s;
+}
+
+.ark-navbar-link:hover::after{
+  width:100%;
+}
