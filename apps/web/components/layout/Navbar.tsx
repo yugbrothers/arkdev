@@ -19,41 +19,45 @@ export default function Navbar() {
     >
       <div
         className="
-        h-16
+        max-w-7xl
+        mx-auto
+        h-20
         px-8
         flex
         items-center
         justify-between
         "
       >
-        <h1
+        <a
+          href="/"
           className="
-          text-3xl
+          text-5xl
           font-black
+          ark-logo
           "
         >
           ArkDev
-        </h1>
+        </a>
 
-        <div
-          className="
-          flex
-          items-center
-          gap-6
-          "
-        >
-          <img
-            src="/ark-orb.svg"
-            alt="Ark Orb"
-            className="
-            h-10
-            w-10
-            orb-spin
-            "
-          />
+        <nav className="hidden md:flex gap-8">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/blog">Blog</a>
+          <a href="/dashboard">Dashboard</a>
+          <a href="/projects">Projects</a>
+          <a href="/workspace">Workspace</a>
+          <a href="/analytics">Analytics</a>
+          <a href="/ai">AI</a>
 
-          <ThemeToggle />
-        </div>
+          <a
+            href="https://discord.com"
+            target="_blank"
+          >
+            Discord
+          </a>
+        </nav>
+
+        <ThemeToggle />
       </div>
     </header>
   );

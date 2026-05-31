@@ -296,3 +296,112 @@ app.listen(PORT, () => {
   );
 });
 
+
+app.get(
+  "/channels/:workspaceId",
+  authMiddleware,
+  async (req, res) => {
+
+    const channels =
+      await prisma.channel.findMany({
+        where: {
+          workspaceId: String(
+            req.params.workspaceId
+          )
+        }
+      });
+
+    res.json(channels);
+  }
+);
+
+
+app.post(
+  "/channels",
+  authMiddleware,
+  async (req, res) => {
+
+    const {
+      name,
+      workspaceId
+    } = req.body;
+
+    const channel =
+      await prisma.channel.create({
+        data: {
+          name,
+          workspaceId
+        }
+      });
+
+    res.json(channel);
+  }
+);
+
+
+app.get(
+  "/messages/:channelId",
+  authMiddleware,
+  async (req, res) => {
+
+    const messages =
+      await prisma.message.findMany({
+        where: {
+          channelId: String(
+            req.params.channelId
+          )
+        },
+        include: {
+          user: true
+        },
+        orderBy: {
+          createdAt: "asc"
+        }
+      });
+
+    res.json(messages);
+  }
+);
+
+
+app.post(
+  "/messages",
+  authMiddleware,
+  async (req, res) => {
+
+    const {
+      content,
+      channelId
+    } = req.body;
+
+    const message =
+      await prisma.message.create({
+        data: {
+          content,
+          channelId,
+          userId:
+            (req as any).user.userId
+        }
+      });
+
+    res.json(message);
+  }
+);
+
+
+app.get(
+  "/notifications",
+  authMiddleware,
+  async (_req, res) => {
+
+    const notifications =
+      await prisma.notification.findMany({
+        orderBy: {
+          createdAt: "desc"
+        }
+      });
+
+    res.json(notifications);
+  }
+);
+

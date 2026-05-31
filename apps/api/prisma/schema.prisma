@@ -8,54 +8,108 @@ datasource db {
 }
 
 model User {
-  id         String      @id @default(cuid())
-  email      String      @unique
-  password   String
-  name       String?
-  projects   Project[]
-  workspaces Workspace[]
-  createdAt  DateTime    @default(now())
-}
+  id            String      @id @default(cuid())
+  email         String      @unique
+  password      String
+  name          String?
 
-model Project {
-  id          String   @id @default(cuid())
-  name        String
-  description String?
+  projects      Project[]
+  workspaces    Workspace[]
 
-  ownerId     String
-  owner       User     @relation(fields: [ownerId], references: [id])
+  memberships   WorkspaceMember[]
+  messages      Message[]
 
-  workspaceId String
-  workspace   Workspace @relation(fields: [workspaceId], references: [id])
-
-  tasks       Task[]
-
-  createdAt   DateTime @default(now())
-}
-
-model Task {
-  id          String   @id @default(cuid())
-  title       String
-  status      String   @default("todo")
-  projectId   String
-  project     Project  @relation(fields: [projectId], references: [id])
-  createdAt   DateTime @default(now())
+  createdAt     DateTime @default(now())
 }
 
 model Workspace {
-  id          String   @id @default(cuid())
-  name        String
+  id            String      @id @default(cuid())
+  name          String
 
-  ownerId     String
-  owner       User     @relation(fields: [ownerId], references: [id])
+  ownerId       String
+  owner         User        @relation(fields: [ownerId], references: [id])
 
-  projects    Project[]
+  projects      Project[]
+  channels      Channel[]
+  members       WorkspaceMember[]
 
-  createdAt   DateTime @default(now())
+  createdAt     DateTime @default(now())
+}
+
+model WorkspaceMember {
+  id            String      @id @default(cuid())
+
+  workspaceId   String
+  workspace     Workspace   @relation(fields:[workspaceId], references:[id])
+
+  userId        String
+  user          User        @relation(fields:[userId], references:[id])
+
+  role          String      @default("member")
+
+  createdAt     DateTime    @default(now())
+}
+
+model Channel {
+  id            String      @id @default(cuid())
+
+  name          String
+
+  workspaceId   String
+  workspace     Workspace   @relation(fields:[workspaceId], references:[id])
+
+  messages      Message[]
+
+  createdAt     DateTime    @default(now())
+}
+
+model Message {
+  id            String      @id @default(cuid())
+
+  content       String
+
+  userId        String
+  user          User        @relation(fields:[userId], references:[id])
+
+  channelId     String
+  channel       Channel     @relation(fields:[channelId], references:[id])
+
+  createdAt     DateTime    @default(now())
+}
+
+model Project {
+  id            String      @id @default(cuid())
+
+  name          String
+  description   String?
+
+  ownerId       String
+  owner         User        @relation(fields:[ownerId], references:[id])
+
+  workspaceId   String
+  workspace     Workspace   @relation(fields:[workspaceId], references:[id])
+
+  tasks         Task[]
+
+  createdAt     DateTime    @default(now())
+}
+
+model Task {
+  id            String      @id @default(cuid())
+
+  title         String
+  status        String      @default("todo")
+
+  projectId     String
+  project       Project     @relation(fields:[projectId], references:[id])
+
+  createdAt     DateTime @default(now())
 }
 
 model Notification {
-  id        String   @id @default(cuid())
-  message   String
-  createdAt DateTime @default(now())
+  id            String      @id @default(cuid())
+
+  message       String
+
+  createdAt     DateTime @default(now())
 }

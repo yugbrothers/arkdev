@@ -164,3 +164,80 @@ html.brand body {
 .orb-spin {
   animation: orbRotate 8s linear infinite;
 }
+
+.ark-logo{
+  animation:
+  glow 3s infinite;
+}
+
+@keyframes glow{
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-4px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+}
+
+.mascot{
+  font-size:34px;
+  animation:
+  bounce 2s infinite;
+}
+
+@keyframes bounce{
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-8px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+}
+
+.ark-logo{
+  background:
+  linear-gradient(
+    90deg,
+    #60a5fa,
+    #a855f7,
+    #ec4899
+  );
+
+  -webkit-background-clip:text;
+  color:transparent;
+
+  animation:
+  arkGlow 4s linear infinite;
+}
+
+.ark-logo:hover{
+  transform:scale(1.08);
+}
+
+@keyframes arkGlow{
+  0%{
+    filter:hue-rotate(0deg);
+  }
+
+  100%{
+    filter:hue-rotate(360deg);
+  }
+}
+
+nav a{
+  transition:all .3s;
+}
+
+nav a:hover{
+  transform:translateY(-2px);
+}

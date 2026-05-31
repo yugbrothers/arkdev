@@ -22,7 +22,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <main className="relative min-h-screen">
+    <main className="relative h-screen">
       <video
         key={videos[videoIndex]}
         autoPlay
@@ -55,7 +55,7 @@ export default function HomePage() {
         className="
         relative
         z-10
-        min-h-screen
+        h-screen
         flex
         flex-col
         items-center
