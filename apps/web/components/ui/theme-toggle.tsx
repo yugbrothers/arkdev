@@ -1,23 +1,32 @@
 "use client";
 
-import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
 export default function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
+  const { setTheme } = useTheme();
 
   return (
-    <button
-      className="rounded-xl border border-white/20 p-2 hover:bg-white/10 transition"
-      onClick={() =>
-        setTheme(theme === "dark" ? "light" : "dark")
-      }
-    >
-      {theme === "dark" ? (
-        <Sun size={20} />
-      ) : (
-        <Moon size={20} />
-      )}
-    </button>
+    <div className="flex gap-2">
+      <button
+        className="px-3 py-2 rounded-xl border"
+        onClick={() => setTheme("light")}
+      >
+        Light
+      </button>
+
+      <button
+        className="px-3 py-2 rounded-xl border"
+        onClick={() => setTheme("dark")}
+      >
+        Dark
+      </button>
+
+      <button
+        className="px-3 py-2 rounded-xl border"
+        onClick={() => setTheme("brand")}
+      >
+        Brand
+      </button>
+    </div>
   );
 }

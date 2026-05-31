@@ -6,42 +6,50 @@ export default function Navbar() {
   return (
     <header
       className="
-      sticky
+      fixed
       top-0
+      left-0
+      right-0
       z-50
       backdrop-blur-xl
+      bg-black/30
       border-b
       border-white/10
-      bg-black/20
       "
     >
       <div
         className="
-        max-w-7xl
-        mx-auto
-        px-6
         h-16
+        px-6
         flex
         items-center
         justify-between
         "
       >
         <div className="flex items-center gap-3">
-          <div
+          <img
+            src="/arkdev-logo.svg"
+            alt="ArkDev"
             className="
             h-10
             w-10
-            rounded-xl
-            bg-gradient-to-r
-            from-blue-500
-            to-purple-600
+            animate-spin
             "
           />
 
-          <h1 className="text-2xl font-bold">
+          <span className="font-bold text-2xl">
             ArkDev
-          </h1>
+          </span>
         </div>
+
+        <nav className="hidden md:flex gap-6">
+          <a href="/">Home</a>
+          <a href="/dashboard">Dashboard</a>
+          <a href="/projects">Projects</a>
+          <a href="/workspace">Workspace</a>
+          <a href="/analytics">Analytics</a>
+          <a href="/ai">AI</a>
+        </nav>
 
         <ThemeToggle />
       </div>

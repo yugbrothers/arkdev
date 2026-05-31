@@ -1,34 +1,112 @@
+"use client";
+import MusicPlayer from "@/components/media/MusicPlayer";
+
+import { useEffect, useState } from "react";
+
+const videos = [
+  "/videos/aldevcar2.mp4",
+  "/videos/formula1aldev.mp4",
+  "/videos/formula2aldev.mp4",
+  "/videos/formula5aldev.mp4",
+  "/videos/formulabikealdev1.mp4"
+];
+
 export default function HomePage() {
+  const [videoIndex, setVideoIndex] =
+    useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setVideoIndex(
+        (v) => (v + 1) % videos.length
+      );
+    }, 15000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <main
-      className="
-      min-h-screen
-      flex
-      items-center
-      justify-center
-      px-6
-      "
-    >
-      <div className="text-center">
+    <main className="relative min-h-screen">
+      <video
+        key={videos[videoIndex]}
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="
+        absolute
+        inset-0
+        w-full
+        h-full
+        object-cover
+        "
+      >
+        <source
+          src={videos[videoIndex]}
+          type="video/mp4"
+        />
+      </video>
+
+      <div
+        className="
+        absolute
+        inset-0
+        bg-black/60
+        "
+      />
+
+      <div
+        className="
+        relative
+        z-10
+        min-h-screen
+        flex
+        flex-col
+        items-center
+        justify-center
+        px-6
+        text-center
+        "
+      >
+        <img
+          src="/arkdev-logo.svg"
+          alt="ArkDev"
+          className="
+          h-28
+          w-28
+          animate-spin
+          mb-6
+          "
+        />
+
         <h1
           className="
           text-7xl
+          md:text-8xl
           font-black
-          bg-gradient-to-r
-          from-blue-500
-          to-purple-500
-          bg-clip-text
-          text-transparent
+          text-white
           "
         >
           ArkDev
         </h1>
 
-        <p className="mt-6 text-xl opacity-80">
+        <p
+          className="
+          mt-6
+          text-xl
+          text-white/90
+          "
+        >
           AI Powered Development Workspace
         </p>
 
-        <div className="mt-10 flex justify-center gap-4">
+        <div
+          className="
+          mt-10
+          flex
+          gap-4
+          "
+        >
           <a
             href="/dashboard"
             className="
@@ -36,6 +114,7 @@ export default function HomePage() {
             py-3
             rounded-xl
             bg-blue-600
+            text-white
             "
           >
             Dashboard
@@ -48,13 +127,15 @@ export default function HomePage() {
             py-3
             rounded-xl
             border
-            border-white/10
+            border-white/20
+            text-white
             "
           >
             AI Assistant
           </a>
         </div>
       </div>
-    </main>
+      <MusicPlayer />
+</main>
   );
 }

@@ -28,3 +28,77 @@ body {
   radial-gradient(circle at top right,#7c3aed 0%,transparent 30%),
   #020617;
 }
+
+html.light {
+  --background: #ffffff;
+  --foreground: #111111;
+}
+
+html.dark {
+  --background: #000000;
+  --foreground: #ffffff;
+}
+
+html.brand {
+  --background: #050816;
+  --foreground: #ffffff;
+}
+
+html.brand body {
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(59,130,246,.25),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(147,51,234,.25),
+      transparent 40%
+    ),
+    #050816;
+}
+
+html.dark body {
+  background: #000000;
+}
+
+html.light body {
+  background: #ffffff;
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg)
+      translateX(14px)
+      rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg)
+      translateX(14px)
+      rotate(-360deg);
+  }
+}
+
+.orbit {
+  animation: orbit 4s linear infinite;
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg)
+      translateX(14px)
+      rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg)
+      translateX(14px)
+      rotate(-360deg);
+  }
+}
+
+.orbit {
+  animation: orbit 4s linear infinite;
+}
