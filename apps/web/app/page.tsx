@@ -1,4 +1,5 @@
 "use client";
+"use client";
 import MusicPlayer from "@/components/media/MusicPlayer";
 
 import { useEffect, useState } from "react";

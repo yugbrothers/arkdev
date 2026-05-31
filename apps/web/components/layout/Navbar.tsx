@@ -43,6 +43,9 @@ export default function Navbar() {
           <a href="/">Home</a>
           <a href="/about">About</a>
           <a href="/blog">Blog</a>
+<a href="/archive">Archive</a>
+<a href="/showcase">Showcase</a>
+<a href="/reel">Reel</a>
           <a href="/dashboard">Dashboard</a>
           <a href="/projects">Projects</a>
           <a href="/workspace">Workspace</a>
