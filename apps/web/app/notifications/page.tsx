@@ -1,31 +1,30 @@
-export default function CommunityPage() {
+export default function NotificationsPage() {
 
-  const rooms = [
-    "General",
-    "AI Builders",
-    "Founders",
-    "Projects",
-    "Support"
+  const items = [
+    "Workspace Updated",
+    "Project Created",
+    "AI Project Generated",
+    "New Community Message"
   ];
 
   return (
     <main className="pt-28 px-8">
       <h1 className="text-6xl font-black mb-10">
-        ArkDev Community
+        Notifications
       </h1>
 
-      <div className="grid md:grid-cols-3 gap-6">
-        {rooms.map(room => (
+      <div className="space-y-4">
+        {items.map(item => (
           <div
-            key={room}
+            key={item}
             className="
             rounded-2xl
             border
             border-white/10
-            p-6
+            p-5
             "
           >
-            {room}
+            {item}
           </div>
         ))}
       </div>

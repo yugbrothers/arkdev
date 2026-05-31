@@ -1,4 +1,5 @@
 import DashboardStats from "@/components/dashboard/DashboardStats";
+import ActivityFeed from "@/components/activity/ActivityFeed";
 import { getProjects } from "@/lib/api";
 
 export default async function DashboardPage() {

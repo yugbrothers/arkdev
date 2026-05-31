@@ -407,16 +407,20 @@ nav a:hover{
 .nav-group{
   position:relative;
   cursor:pointer;
+  padding-bottom:24px;
 }
 
 .nav-dropdown{
   position:absolute;
-  top:40px;
+  top:100%;
   left:0;
 
   min-width:220px;
 
-  display:none;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(10px);
+  transition:all .25s ease;
 
   padding:16px;
 
@@ -430,10 +434,24 @@ nav a:hover{
 }
 
 .nav-dropdown a{
-  display:block;
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
   padding:10px 0;
 }
 
 .nav-group:hover .nav-dropdown{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+
+/* PRIMARY 1104 OVERRIDE */
+
+.nav-dropdown a{
   display:block;
+  padding:10px 0;
+  opacity:unset;
+  visibility:unset;
+  transform:none;
 }

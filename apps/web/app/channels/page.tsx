@@ -1,11 +1,13 @@
-export default function ChannelsPage(){
+export default function ChannelsPage() {
 
   const channels = [
-    "general",
-    "announcements",
-    "ai",
-    "projects",
-    "support"
+    "# general",
+    "# announcements",
+    "# ai",
+    "# projects",
+    "# support",
+    "# jobs",
+    "# startups"
   ];
 
   return (
@@ -20,11 +22,12 @@ export default function ChannelsPage(){
             key={channel}
             className="
             rounded-xl
-            p-4
             border
+            border-white/10
+            p-5
             "
           >
-            # {channel}
+            {channel}
           </div>
         ))}
       </div>
