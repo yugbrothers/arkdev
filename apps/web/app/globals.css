@@ -102,3 +102,65 @@ html.light body {
 .orbit {
   animation: orbit 4s linear infinite;
 }
+
+@keyframes orbRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.orb-spin {
+  animation: orbRotate 10s linear infinite;
+}
+
+.glass-nav {
+  backdrop-filter: blur(20px);
+}
+
+.video-overlay {
+  background:
+    linear-gradient(
+      rgba(0,0,0,.45),
+      rgba(0,0,0,.65)
+    );
+}
+
+html.light body {
+  background: #ffffff;
+  color: #111111;
+}
+
+html.dark body {
+  background: #000000;
+  color: #ffffff;
+}
+
+html.brand body {
+  background:
+    radial-gradient(circle at top left,
+    rgba(59,130,246,.25),
+    transparent 35%),
+    radial-gradient(circle at bottom right,
+    rgba(168,85,247,.25),
+    transparent 35%),
+    #050816;
+  color: white;
+}
+
+@keyframes orbRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.orb-spin {
+  animation: orbRotate 8s linear infinite;
+}

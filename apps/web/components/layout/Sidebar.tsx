@@ -26,15 +26,15 @@ export default function Sidebar() {
       className="
       w-72
       min-h-screen
-      backdrop-blur-xl
       border-r
       border-white/10
-      bg-black/20
+      bg-black/30
+      backdrop-blur-xl
       "
     >
       <div className="p-6">
-        <h2 className="text-xl font-bold">
-          Navigation
+        <h2 className="text-2xl font-black">
+          ArkDev
         </h2>
       </div>
 
@@ -53,10 +53,9 @@ export default function Sidebar() {
               px-4
               py-3
               rounded-xl
+              mb-2
               hover:bg-white/10
               transition-all
-              duration-300
-              mb-2
               "
             >
               <Icon size={18}/>

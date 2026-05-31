@@ -12,7 +12,7 @@ export default function Navbar() {
       right-0
       z-50
       backdrop-blur-xl
-      bg-black/30
+      bg-black/20
       border-b
       border-white/10
       "
@@ -20,38 +20,40 @@ export default function Navbar() {
       <div
         className="
         h-16
-        px-6
+        px-8
         flex
         items-center
         justify-between
         "
       >
-        <div className="flex items-center gap-3">
+        <h1
+          className="
+          text-3xl
+          font-black
+          "
+        >
+          ArkDev
+        </h1>
+
+        <div
+          className="
+          flex
+          items-center
+          gap-6
+          "
+        >
           <img
-            src="/arkdev-logo.svg"
-            alt="ArkDev"
+            src="/ark-orb.svg"
+            alt="Ark Orb"
             className="
             h-10
             w-10
-            animate-spin
+            orb-spin
             "
           />
 
-          <span className="font-bold text-2xl">
-            ArkDev
-          </span>
+          <ThemeToggle />
         </div>
-
-        <nav className="hidden md:flex gap-6">
-          <a href="/">Home</a>
-          <a href="/dashboard">Dashboard</a>
-          <a href="/projects">Projects</a>
-          <a href="/workspace">Workspace</a>
-          <a href="/analytics">Analytics</a>
-          <a href="/ai">AI</a>
-        </nav>
-
-        <ThemeToggle />
       </div>
     </header>
   );
