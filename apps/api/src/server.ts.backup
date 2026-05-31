@@ -1,6 +1,4 @@
 import express from "express";
-import { createServer } from "http";
-import { Server } from "socket.io";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
@@ -290,6 +288,13 @@ app.get(
 );
 
 
+const PORT = process.env.PORT || 5050;
+
+app.listen(PORT, () => {
+  console.log(
+    `ArkDev API running on http://localhost:${PORT}`
+  );
+});
 
 
 app.get(
@@ -397,83 +402,6 @@ app.get(
       });
 
     res.json(notifications);
-  }
-);
-
-
-
-const PORT = process.env.PORT || 5050;
-
-const httpServer = createServer(app);
-
-const io = new Server(
-  httpServer,
-  {
-    cors:{
-      origin:"*"
-    }
-  }
-);
-
-
-const onlineUsers =
-  new Map<string,string>();
-
-
-io.on(
-  "connection",
-  (socket) => {
-
-    console.log(
-      "socket connected",
-      socket.id
-    );
-
-    socket.on(
-      "join-channel",
-      (channelId:string) => {
-
-        socket.join(channelId);
-
-      }
-    );
-
-    socket.on(
-      "typing",
-      (channelId:string) => {
-
-        socket.to(channelId)
-          .emit(
-            "user-typing"
-          );
-
-      }
-    );
-
-    socket.on(
-      "disconnect",
-      () => {
-
-        console.log(
-          "socket disconnected",
-          socket.id
-        );
-
-      }
-    );
-
-  }
-);
-
-
-httpServer.listen(
-  PORT,
-  () => {
-
-    console.log(
-      `ArkDev API running on http://localhost:${PORT}`
-    );
-
   }
 );
 
