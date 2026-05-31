@@ -4,13 +4,9 @@ import MusicPlayer from "@/components/media/MusicPlayer";
 import { useEffect, useState } from "react";
 
 const videos = [
-  "/videos/aldevcar2.mp4",
-  "/videos/formula1aldev.mp4",
   "/videos/formula2aldev.mp4",
-  "/videos/formula5aldev.mp4",
   "/videos/formulabikealdev1.mp4"
 ];
-
 export default function HomePage() {
   const [videoIndex, setVideoIndex] =
     useState(0);
