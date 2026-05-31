@@ -3,30 +3,24 @@
 import { useTheme } from "next-themes";
 
 export default function ThemeToggle() {
-  const { setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
+
+  const cycleTheme = () => {
+    if(theme==="light") setTheme("dark");
+    else if(theme==="dark") setTheme("brand");
+    else setTheme("light");
+  };
 
   return (
-    <div className="flex items-center gap-2">
-      <button
-        onClick={() => setTheme("light")}
-        className="px-3 py-2 rounded-xl border"
-      >
-        ☀
-      </button>
-
-      <button
-        onClick={() => setTheme("dark")}
-        className="px-3 py-2 rounded-xl border"
-      >
-        🌙
-      </button>
-
-      <button
-        onClick={() => setTheme("brand")}
-        className="px-3 py-2 rounded-xl border"
-      >
-        ⚡
-      </button>
-    </div>
+    <button
+      onClick={cycleTheme}
+      className="
+      mascot-btn
+      "
+    >
+      {theme==="light" && "😺"}
+      {theme==="dark" && "🤖"}
+      {theme==="brand" && "🚀"}
+    </button>
   );
 }

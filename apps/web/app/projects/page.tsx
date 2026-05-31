@@ -1,4 +1,5 @@
 import { getProjects } from "@/lib/api";
+import KanbanBoard from "@/components/kanban/KanbanBoard";
 
 export default async function ProjectsPage() {
   const projects =
@@ -9,6 +10,8 @@ export default async function ProjectsPage() {
       <h1 className="text-5xl font-bold mb-8">
         Projects
       </h1>
+
+      <KanbanBoard />
 
       <div className="grid gap-6">
         {projects.map((project:any) => (

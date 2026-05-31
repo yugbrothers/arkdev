@@ -1,4 +1,4 @@
-import Orb from "@/components/effects/Orb";
+import ThreeOrb from "@/components/three/ThreeOrb";
 import Navbar from "@/components/layout/Navbar";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import type { Metadata } from "next";
@@ -18,7 +18,7 @@ export default function RootLayout({
     <html suppressHydrationWarning lang="en">
       <body>
         <ThemeProvider>
-          <Orb />
+          <ThreeOrb />
           <Navbar />
           {children}
         </ThemeProvider>

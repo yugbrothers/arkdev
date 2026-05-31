@@ -35,7 +35,7 @@ export default function HomePage() {
         inset-0
         w-full
         h-full
-        object-cover
+        object-cover scale-105
         "
       >
         <source
