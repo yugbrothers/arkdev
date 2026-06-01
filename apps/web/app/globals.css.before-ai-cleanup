@@ -538,6 +538,140 @@ nav a,
 
 }
 
+.ring3{
+  width:150px;
+  height:150px;
+  animation:rotateRing 14s linear infinite;
+}
+
+@keyframes rotateRing{
+  from{transform:rotate(0deg);}
+  to{transform:rotate(360deg);}
+}
+
+@keyframes rotateRingReverse{
+  from{transform:rotate(360deg);}
+  to{transform:rotate(0deg);}
+}
+
+@keyframes arkFloat{
+
+border-radius:999px;
+
+background:
+radial-gradient(
+circle,
+#60a5fa,
+#2563eb,
+#1e3a8a
+);
+
+box-shadow:
+0 0 20px #60a5fa,
+0 0 50px #2563eb,
+0 0 80px #1e40af;
+
+animation:
+arkPulse 3s infinite;
+
+}
+
+.ark-ring{
+
+position:absolute;
+
+border-radius:999px;
+
+border:
+2px solid rgba(96,165,250,.4);
+
+}
+
+.ring1{
+
+width:60px;
+height:60px;
+
+animation:
+spin 8s linear infinite;
+
+}
+
+.ring2{
+
+width:80px;
+height:80px;
+
+animation:
+spinReverse 12s linear infinite;
+
+}
+
+.ring3{
+
+width:100px;
+height:100px;
+
+animation:
+spin 18s linear infinite;
+
+}
+
+@keyframes spin{
+
+from{
+transform:rotate(0deg);
+}
+
+to{
+transform:rotate(360deg);
+}
+
+}
+
+@keyframes spinReverse{
+
+from{
+transform:rotate(360deg);
+}
+
+to{
+transform:rotate(0deg);
+}
+
+}
+
+@keyframes arkFloat{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-12px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+@keyframes arkPulse{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.12);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
 
 .ark-particle{
 position:absolute;

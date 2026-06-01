@@ -538,6 +538,27 @@ nav a,
 
 }
 
+.ring3{
+  width:150px;
+  height:150px;
+  animation:rotateRing 14s linear infinite;
+}
+
+@keyframes rotateRing{
+  from{transform:rotate(0deg);}
+  to{transform:rotate(360deg);}
+}
+
+@keyframes rotateRingReverse{
+  from{transform:rotate(360deg);}
+  to{transform:rotate(0deg);}
+}
+
+@keyframes arkFloat{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-12px);}
+  100%{transform:translateY(0);}
+}
 
 .ark-particle{
 position:absolute;

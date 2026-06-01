@@ -5,12 +5,12 @@ import { useEffect,useState } from "react";
 export default function MascotEmotion(){
 
   const emotions = [
-    "😊",
     "🤖",
-    "🚀",
-    "🎉",
     "⚡",
-    "💡"
+    "🚀",
+    "🧠",
+    "✨",
+    "🔥"
   ];
 
   const [emotion,setEmotion] =
@@ -38,10 +38,11 @@ export default function MascotEmotion(){
   },[]);
 
   return(
+
     <div
       className="
       absolute
-      -bottom-4
+      -bottom-8
       left-1/2
       -translate-x-1/2
       text-xl
@@ -49,6 +50,7 @@ export default function MascotEmotion(){
     >
       {emotion}
     </div>
+
   );
 
 }

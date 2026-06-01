@@ -1,46 +1,15 @@
 "use client";
 
-import { usePathname } from "next/navigation";
-import MascotReaction from "./MascotReaction";
+import MascotParticles from "./MascotParticles";
+import MascotSpeech from "./MascotSpeech";
 import MascotEmotion from "./MascotEmotion";
-import MascotBubble from "./MascotBubble";
+import MascotTracker from "./MascotTracker";
+import MascotBrain from "./MascotBrain";
+import MascotClick from "./MascotClick";
 
 export default function ArkMascot(){
 
-  const pathname =
-    usePathname();
-
-  const mascotMap:Record<string,string> = {
-
-    "/":"ark1mascot.png",
-
-    "/about":"owl.png",
-
-    "/blog":"macotsaprrow1.png",
-
-    "/archive":"mascotsparrrow2.png",
-
-    "/workspace":"racoon.png",
-
-    "/community":"penguin.png",
-
-    "/chat":"AIconsciousness.png",
-
-    "/ai":"mascotrobotheme.png",
-
-    "/projects":"panda.png",
-
-    "/analytics":"fox.png",
-
-    "/dashboard":"ark2mascot.png"
-
-  };
-
-  const mascot =
-    mascotMap[pathname] ||
-    "arc1.png";
-
-  return (
+  return(
 
     <div
       className="
@@ -48,36 +17,33 @@ export default function ArkMascot(){
       top-6
       right-6
       z-[9999]
-      group
       "
     >
 
-      <MascotReaction />
+      <MascotTracker />
 
-      <MascotEmotion />
+      <MascotSpeech />
 
-      <MascotBubble />
+      <MascotBrain />
 
-      <div className="mascot-orb" />
+      <div className="ark-ai-core">
 
-      <img
-        src={`/mascots/${mascot}`}
-        alt="ArkDev Mascot"
-        className="
-        w-24
-        h-24
-        object-contain
-        drop-shadow-2xl
-        mascot-glow
-        mascot-float
-        hover:scale-110
-        transition-all
-        duration-500
-        cursor-pointer
-        "
-      />
+        <MascotParticles />
+
+        <div className="ark-ring ring1"></div>
+        <div className="ark-ring ring2"></div>
+        <div className="ark-ring ring3"></div>
+
+        <div className="ark-center"></div>
+
+        <MascotClick />
+
+        <MascotEmotion />
+
+      </div>
 
     </div>
 
   );
+
 }
