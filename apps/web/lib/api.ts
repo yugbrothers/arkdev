@@ -81,3 +81,27 @@ export async function getWorkspaceProjects(
 
   return response.json();
 }
+
+export async function createProject(
+  name:string,
+  description:string,
+  workspaceId?:string
+){
+  const response = await fetch(
+    `${API_URL}/projects`,
+    {
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+        Authorization:`Bearer ${TOKEN}`
+      },
+      body:JSON.stringify({
+        name,
+        description,
+        workspaceId
+      })
+    }
+  );
+
+  return response.json();
+}

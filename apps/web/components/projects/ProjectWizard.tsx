@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { createProject } from "@/lib/api";
 
 export default function ProjectWizard(){
 
@@ -10,25 +11,36 @@ export default function ProjectWizard(){
   const [description,setDescription] =
     useState("");
 
-  const [projects,setProjects] =
-    useState<any[]>([]);
+  const [loading,setLoading] =
+    useState(false);
 
-  function createProject(){
+  async function handleCreate(){
 
     if(!name.trim()) return;
 
-    setProjects(prev=>[
-      ...prev,
-      {
-        id:Date.now(),
-        name,
-        description,
-        status:"Active"
-      }
-    ]);
+    try{
 
-    setName("");
-    setDescription("");
+      setLoading(true);
+
+      await createProject(
+        name,
+        description
+      );
+
+      setName("");
+      setDescription("");
+
+      window.location.reload();
+
+    }catch(error){
+
+      console.error(error);
+
+    }finally{
+
+      setLoading(false);
+
+    }
 
   }
 
@@ -82,7 +94,8 @@ export default function ProjectWizard(){
         />
 
         <button
-          onClick={createProject}
+          onClick={handleCreate}
+          disabled={loading}
           className="
           px-6
           py-3
@@ -92,47 +105,10 @@ export default function ProjectWizard(){
           transition-all
           "
         >
-          Create Project
+          {loading
+            ? "Creating..."
+            : "Create Project"}
         </button>
-
-      </div>
-
-      <div className="mt-8 space-y-4">
-
-        {projects.map(project=>(
-
-          <div
-            key={project.id}
-            className="
-            p-5
-            rounded-2xl
-            border
-            border-white/10
-            bg-white/5
-            "
-          >
-
-            <div className="font-bold text-lg">
-              {project.name}
-            </div>
-
-            <div className="opacity-70 mt-2">
-              {project.description}
-            </div>
-
-            <div
-              className="
-              text-sm
-              text-green-400
-              mt-3
-              "
-            >
-              {project.status}
-            </div>
-
-          </div>
-
-        ))}
 
       </div>
 
