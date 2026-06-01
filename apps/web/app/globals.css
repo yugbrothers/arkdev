@@ -495,3 +495,105 @@ nav a,
     transform:translateY(0px);
   }
 }
+
+.mascot-alert-success{
+  box-shadow:
+  0 0 60px #22c55e;
+}
+
+.mascot-alert-error{
+  box-shadow:
+  0 0 60px #ef4444;
+}
+
+.mascot-alert-info{
+  box-shadow:
+  0 0 60px #3b82f6;
+}
+
+.mascot-alert-warning{
+  box-shadow:
+  0 0 60px #f59e0b;
+}
+
+@keyframes mascotFloat {
+
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-10px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+
+}
+
+.mascot-float{
+  animation:
+  mascotFloat 4s ease-in-out infinite;
+}
+
+
+@keyframes mascotGlow {
+
+  0%{
+    filter:
+    drop-shadow(0 0 5px #60a5fa);
+  }
+
+  50%{
+    filter:
+    drop-shadow(0 0 25px #60a5fa);
+  }
+
+  100%{
+    filter:
+    drop-shadow(0 0 5px #60a5fa);
+  }
+
+}
+
+.mascot-glow{
+  animation:
+  mascotGlow 3s infinite;
+}
+
+
+@keyframes orbPulse {
+
+  0%{
+    transform:scale(1);
+    opacity:.6;
+  }
+
+  50%{
+    transform:scale(1.2);
+    opacity:1;
+  }
+
+  100%{
+    transform:scale(1);
+    opacity:.6;
+  }
+
+}
+
+.mascot-orb{
+
+  position:absolute;
+
+  inset:-10px;
+
+  border-radius:9999px;
+
+  border:2px solid
+  rgba(96,165,250,.5);
+
+  animation:
+  orbPulse 2s infinite;
+
+}

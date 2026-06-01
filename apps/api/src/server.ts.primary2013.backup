@@ -429,17 +429,7 @@ io.on(
       socket.id
     );
 
-    onlineUsers.set(
-      socket.id,
-      socket.id
-    );
-
-    io.emit(
-      "online-users",
-      onlineUsers.size
-    );
-
-socket.on(
+    socket.on(
       "join-channel",
       (channelId:string) => {
 
@@ -461,19 +451,6 @@ socket.on(
     );
 
     socket.on(
-      "send-message",
-      (data:any) => {
-
-        io.to(data.channelId)
-          .emit(
-            "receive-message",
-            data
-          );
-
-      }
-    );
-
-    socket.on(
       "disconnect",
       () => {
 
@@ -482,16 +459,7 @@ socket.on(
           socket.id
         );
 
-        onlineUsers.delete(
-          socket.id
-        );
-
-        io.emit(
-          "online-users",
-          onlineUsers.size
-        );
-
-}
+      }
     );
 
   }

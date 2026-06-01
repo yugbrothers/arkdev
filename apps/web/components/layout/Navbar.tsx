@@ -1,5 +1,6 @@
 "use client";
 
+import NotificationBell from "@/components/notifications/NotificationBell";
 import ThemeToggle from "@/components/ui/theme-toggle";
 
 export default function Navbar() {
@@ -82,7 +83,7 @@ export default function Navbar() {
           <a href="/about">About</a>
         </nav>
 
-        <ThemeToggle />
+        <div className="flex items-center gap-4"><NotificationBell /><ThemeToggle /></div>
       </div>
     </header>
   );

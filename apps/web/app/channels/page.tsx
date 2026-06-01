@@ -1,36 +1,64 @@
-export default function ChannelsPage() {
+"use client";
 
-  const channels = [
-    "# general",
-    "# announcements",
-    "# ai",
-    "# projects",
-    "# support",
-    "# jobs",
-    "# startups"
-  ];
+import { useState } from "react";
+import ChannelSidebar from "@/components/channels/ChannelSidebar";
+import RealtimeChat from "@/components/chat/RealtimeChat";
 
-  return (
-    <main className="pt-28 px-8">
-      <h1 className="text-6xl font-black mb-10">
+export default function ChannelsPage(){
+
+  const [active,setActive]=
+    useState("general");
+
+  return(
+
+    <main
+      className="
+      pt-28
+      px-8
+      "
+    >
+
+      <h1
+        className="
+        text-6xl
+        font-black
+        mb-10
+        "
+      >
         Channels
       </h1>
 
-      <div className="space-y-4">
-        {channels.map(channel => (
+      <div
+        className="
+        flex
+        gap-8
+        "
+      >
+
+        <ChannelSidebar
+          active={active}
+          setActive={setActive}
+        />
+
+        <div className="flex-1">
+
           <div
-            key={channel}
             className="
-            rounded-xl
-            border
-            border-white/10
-            p-5
+            text-xl
+            font-bold
+            mb-4
             "
           >
-            {channel}
+            # {active}
           </div>
-        ))}
+
+          <RealtimeChat />
+
+        </div>
+
       </div>
+
     </main>
+
   );
 }
