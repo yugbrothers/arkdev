@@ -9,8 +9,8 @@ import {
   getTasks
 } from "@/lib/api";
 
-import TaskCard
-from "./TaskCard";
+import TaskCard from "./TaskCard";
+import CreateTask from "./CreateTask";
 
 export default function KanbanBoard(){
 
@@ -48,100 +48,94 @@ export default function KanbanBoard(){
 
     todo:
       tasks.filter(
-        t=>t.status==="TODO"
+        t => t.status === "TODO" ||
+             t.status === "todo"
       ),
 
     progress:
       tasks.filter(
-        t=>t.status==="IN_PROGRESS"
+        t => t.status === "IN_PROGRESS"
       ),
 
     done:
       tasks.filter(
-        t=>t.status==="DONE"
+        t => t.status === "DONE"
       )
 
   };
 
   return(
-
-    <div
-      className="
-      grid
-      md:grid-cols-3
-      gap-6
-      mb-12
-      "
-    >
+    <>
+      <CreateTask />
 
       <div
         className="
-        rounded-2xl
-        bg-white/5
-        p-4
+        grid
+        md:grid-cols-3
+        gap-6
+        mb-12
         "
       >
-        <h2 className="font-bold mb-4">
-          Todo
-        </h2>
 
-        {columns.todo.map(
-          task=>(
+        <div
+          className="
+          rounded-2xl
+          bg-white/5
+          p-4
+          "
+        >
+          <h2 className="font-bold mb-4">
+            Todo
+          </h2>
+
+          {columns.todo.map(task=>(
             <TaskCard
               key={task.id}
               task={task}
             />
-          )
-        )}
+          ))}
+        </div>
 
-      </div>
+        <div
+          className="
+          rounded-2xl
+          bg-white/5
+          p-4
+          "
+        >
+          <h2 className="font-bold mb-4">
+            In Progress
+          </h2>
 
-      <div
-        className="
-        rounded-2xl
-        bg-white/5
-        p-4
-        "
-      >
-        <h2 className="font-bold mb-4">
-          In Progress
-        </h2>
-
-        {columns.progress.map(
-          task=>(
+          {columns.progress.map(task=>(
             <TaskCard
               key={task.id}
               task={task}
             />
-          )
-        )}
+          ))}
+        </div>
 
-      </div>
+        <div
+          className="
+          rounded-2xl
+          bg-white/5
+          p-4
+          "
+        >
+          <h2 className="font-bold mb-4">
+            Done
+          </h2>
 
-      <div
-        className="
-        rounded-2xl
-        bg-white/5
-        p-4
-        "
-      >
-        <h2 className="font-bold mb-4">
-          Done
-        </h2>
-
-        {columns.done.map(
-          task=>(
+          {columns.done.map(task=>(
             <TaskCard
               key={task.id}
               task={task}
             />
-          )
-        )}
+          ))}
+        </div>
 
       </div>
-
-    </div>
-
+    </>
   );
 
 }

@@ -105,3 +105,50 @@ export async function createProject(
 
   return response.json();
 }
+
+export async function createTask(
+  title:string,
+  projectId:string
+){
+
+  const response = await fetch(
+    `${API_URL}/tasks`,
+    {
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+        Authorization:`Bearer ${TOKEN}`
+      },
+      body:JSON.stringify({
+        title,
+        projectId
+      })
+    }
+  );
+
+  return response.json();
+
+}
+
+export async function updateTask(
+  taskId:string,
+  status:string
+){
+
+  const response = await fetch(
+    `${API_URL}/tasks/${taskId}`,
+    {
+      method:"PATCH",
+      headers:{
+        "Content-Type":"application/json",
+        Authorization:`Bearer ${TOKEN}`
+      },
+      body:JSON.stringify({
+        status
+      })
+    }
+  );
+
+  return response.json();
+
+}
