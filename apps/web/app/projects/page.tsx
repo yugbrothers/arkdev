@@ -1,3 +1,4 @@
+import ProjectWizard from "@/components/projects/ProjectWizard";
 import { getProjects } from "@/lib/api";
 import KanbanBoard from "@/components/kanban/KanbanBoard";
 
@@ -7,6 +8,8 @@ export default async function ProjectsPage() {
 
   return (
     <main className="max-w-7xl mx-auto p-8">
+
+      <ProjectWizard />
       <h1 className="text-5xl font-bold mb-8">
         Projects
       </h1>

@@ -1,3 +1,4 @@
+import GlobalSearch from "@/components/search/GlobalSearch";
 import DashboardStats from "@/components/dashboard/DashboardStats";
 import ActivityFeed from "@/components/activity/ActivityFeed";
 import { getProjects } from "@/lib/api";
@@ -7,6 +8,8 @@ export default async function DashboardPage() {
 
   return (
     <main className="max-w-7xl mx-auto p-8">
+
+      <GlobalSearch />
       <h1 className="text-5xl font-bold mb-8">
         ArkDev Dashboard
       </h1>

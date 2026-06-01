@@ -1,3 +1,4 @@
+import FileManager from "@/components/workspace/FileManager";
 import { getWorkspaces } from "@/lib/api";
 
 export default async function WorkspacePage() {
@@ -6,6 +7,8 @@ export default async function WorkspacePage() {
 
   return (
     <main className="max-w-7xl mx-auto p-8">
+
+      <FileManager />
       <h1 className="text-5xl font-bold mb-8">
         Workspaces
       </h1>
