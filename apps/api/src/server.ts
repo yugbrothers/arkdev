@@ -160,7 +160,13 @@ app.get(
   async (req,res)=>{
 
     const tasks =
-      await prisma.task.findMany();
+      await prisma.task.findMany({
+        where:{
+          project:{
+            ownerId:(req as any).user.userId
+          }
+        }
+      });
 
     res.json(tasks);
 
