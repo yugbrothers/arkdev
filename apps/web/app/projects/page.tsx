@@ -7,10 +7,10 @@ export default async function ProjectsPage() {
     await getProjects();
 
   return (
-    <main className="max-w-7xl mx-auto p-8">
+    <main className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-6">
 
       <ProjectWizard />
-      <h1 className="text-5xl font-bold mb-8">
+      <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8">
         Projects
       </h1>
 

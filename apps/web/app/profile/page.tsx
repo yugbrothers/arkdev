@@ -16,7 +16,7 @@ export default function ProfilePage(){
 
       <h1
         className="
-        text-5xl
+        text-3xl md:text-4xl lg:text-5xl
         font-bold
         mb-8
         "

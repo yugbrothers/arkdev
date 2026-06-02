@@ -7,11 +7,11 @@ export default async function NotificationsPage(){
 
   return(
 
-    <main className="pt-28 px-8">
+    <main className="pt-24 px-4 md:px-6 lg:px-8 max-w-7xl mx-auto">
 
       <h1
         className="
-        text-6xl
+        text-3xl md:text-4xl lg:text-5xl
         font-black
         mb-10
         "
