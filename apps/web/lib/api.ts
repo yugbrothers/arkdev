@@ -152,3 +152,25 @@ export async function updateTask(
   return response.json();
 
 }
+
+export async function createWorkspace(
+  name:string
+){
+
+  const response = await fetch(
+    `${API_URL}/workspaces`,
+    {
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+        Authorization:`Bearer ${TOKEN}`
+      },
+      body:JSON.stringify({
+        name
+      })
+    }
+  );
+
+  return response.json();
+
+}
