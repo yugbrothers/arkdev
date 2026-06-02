@@ -313,3 +313,83 @@ through normal navigation.
 
 Direct portfolio URL remains accessible.
 
+
+==================================================
+PERMANENT DEVELOPMENT RULES
+==================================================
+
+Every Phase Must Follow:
+
+PRIMARY XXXXA : BACKUP
+PRIMARY XXXXB : INSPECT
+PRIMARY XXXXC : PATCH
+PRIMARY XXXXD : VERIFY
+PRIMARY XXXXE : BUILD
+PRIMARY XXXXF : TEST
+PRIMARY XXXXG : COMMIT
+PRIMARY XXXXH : PUSH
+PRIMARY XXXXI : GUIDE UPDATE
+PRIMARY XXXXJ : FINAL VERIFY
+
+MANDATORY BUILD RULE
+--------------------
+
+Never commit if build fails.
+
+Always run:
+
+API
+npm run build
+
+WEB
+npm run build
+
+before commit.
+
+MANDATORY TEST RULE
+-------------------
+
+Verify:
+
+git status
+
+before commit.
+
+Expected:
+
+nothing to commit
+working tree clean
+
+MANDATORY DOCUMENTATION RULE
+----------------------------
+
+Every completed phase must append:
+
+PHASE ID
+DATE
+AUTHOR
+PURPOSE
+FILES CHANGED
+ROUTES ADDED
+DATABASE MODELS USED
+PACKAGES INSTALLED
+PACKAGES PURPOSE
+API ENDPOINTS
+WEB PAGES
+SECURITY IMPACT
+BUILD COMMANDS
+RUN COMMANDS
+DEPLOY COMMANDS
+ROLLBACK COMMANDS
+RECOVERY COMMANDS
+TEST COMMANDS
+KNOWN ISSUES
+FUTURE IMPROVEMENTS
+HANDOVER NOTES
+
+AUTHOR
+------
+
+Generated with ChatGPT
+Reviewed by Project Maintainer
+
