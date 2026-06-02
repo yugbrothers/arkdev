@@ -200,15 +200,36 @@ app.patch(
   authMiddleware,
   async (req, res) => {
 
+    const existingTask =
+      await prisma.task.findUnique({
+        where:{
+          id:String(req.params.id)
+        },
+        include:{
+          project:true
+        }
+      });
+
+    if(
+      !existingTask ||
+      existingTask.project.ownerId !==
+      (req as any).user.userId
+    ){
+      return res.status(403).json({
+        error:"Forbidden"
+      });
+    }
+
     const task =
       await prisma.task.update({
-        where: {
-          id: String(req.params.id)
+        where:{
+          id:String(req.params.id)
         },
-        data: req.body
+        data:req.body
       });
 
     res.json(task);
+
   }
 );
 
