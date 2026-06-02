@@ -2,6 +2,7 @@
 
 import NotificationBell from "@/components/notifications/NotificationBell";
 import ThemeToggle from "@/components/ui/theme-toggle";
+import MobileDrawer from "@/components/mobile/MobileDrawer";
 
 export default function Navbar() {
   return (
@@ -83,7 +84,7 @@ export default function Navbar() {
           <a href="/about">About</a>
         </nav>
 
-        <div className="flex items-center gap-4"><NotificationBell /><ThemeToggle /></div>
+        <div className="flex items-center gap-4"><MobileDrawer /><NotificationBell /><ThemeToggle /></div>
       </div>
     </header>
   );
