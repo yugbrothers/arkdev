@@ -27,8 +27,6 @@ app.get(
   "/me",
   authMiddleware,
   async (req, res) => {
-    const existingTask = await prisma.task.findUnique({ include:{ project:true }, where:{ id:String(req.params.id) } });
-    if(!existingTask || existingTask.project.ownerId !== (req as any).user.userId){ return res.status(403).json({ error:"Forbidden" }); }
     res.json({
       user: (req as any).user
     });
@@ -36,8 +34,6 @@ app.get(
 );
 
 app.post("/auth/register", async (req, res) => {
-    const existingTask = await prisma.task.findUnique({ include:{ project:true }, where:{ id:String(req.params.id) } });
-    if(!existingTask || existingTask.project.ownerId !== (req as any).user.userId){ return res.status(403).json({ error:"Forbidden" }); }
   const { email, password, name } = req.body;
 
   const existing = await prisma.user.findUnique({
@@ -68,8 +64,6 @@ app.post("/auth/register", async (req, res) => {
 });
 
 app.post("/auth/login", async (req, res) => {
-    const existingTask = await prisma.task.findUnique({ include:{ project:true }, where:{ id:String(req.params.id) } });
-    if(!existingTask || existingTask.project.ownerId !== (req as any).user.userId){ return res.status(403).json({ error:"Forbidden" }); }
   const { email, password } = req.body;
 
   const user = await prisma.user.findUnique({
@@ -110,8 +104,6 @@ app.get(
   "/projects",
   authMiddleware,
   async (req, res) => {
-    const existingTask = await prisma.task.findUnique({ include:{ project:true }, where:{ id:String(req.params.id) } });
-    if(!existingTask || existingTask.project.ownerId !== (req as any).user.userId){ return res.status(403).json({ error:"Forbidden" }); }
     const userId = (req as any).user.userId;
 
     const projects =
@@ -129,8 +121,6 @@ app.post(
   "/projects",
   authMiddleware,
   async (req, res) => {
-    const existingTask = await prisma.task.findUnique({ include:{ project:true }, where:{ id:String(req.params.id) } });
-    if(!existingTask || existingTask.project.ownerId !== (req as any).user.userId){ return res.status(403).json({ error:"Forbidden" }); }
 
     const userId = (req as any).user.userId;
 
@@ -173,8 +163,6 @@ app.get(
   "/tasks/:projectId",
   authMiddleware,
   async (req, res) => {
-    const existingTask = await prisma.task.findUnique({ include:{ project:true }, where:{ id:String(req.params.id) } });
-    if(!existingTask || existingTask.project.ownerId !== (req as any).user.userId){ return res.status(403).json({ error:"Forbidden" }); }
 
     const project =
       await prisma.project.findFirst({
@@ -223,8 +211,6 @@ app.post(
   "/tasks",
   authMiddleware,
   async (req, res) => {
-    const existingTask = await prisma.task.findUnique({ include:{ project:true }, where:{ id:String(req.params.id) } });
-    if(!existingTask || existingTask.project.ownerId !== (req as any).user.userId){ return res.status(403).json({ error:"Forbidden" }); }
 
     const {
       title,
@@ -262,8 +248,6 @@ app.patch(
   "/tasks/:id",
   authMiddleware,
   async (req, res) => {
-    const existingTask = await prisma.task.findUnique({ include:{ project:true }, where:{ id:String(req.params.id) } });
-    if(!existingTask || existingTask.project.ownerId !== (req as any).user.userId){ return res.status(403).json({ error:"Forbidden" }); }
 
     const existingTask =
       await prisma.task.findUnique({
@@ -303,8 +287,6 @@ app.post(
   "/workspaces",
   authMiddleware,
   async (req, res) => {
-    const existingTask = await prisma.task.findUnique({ include:{ project:true }, where:{ id:String(req.params.id) } });
-    if(!existingTask || existingTask.project.ownerId !== (req as any).user.userId){ return res.status(403).json({ error:"Forbidden" }); }
 
     const { name } = req.body;
 
@@ -324,8 +306,6 @@ app.get(
   "/workspaces",
   authMiddleware,
   async (req, res) => {
-    const existingTask = await prisma.task.findUnique({ include:{ project:true }, where:{ id:String(req.params.id) } });
-    if(!existingTask || existingTask.project.ownerId !== (req as any).user.userId){ return res.status(403).json({ error:"Forbidden" }); }
 
     const workspaces =
       await prisma.workspace.findMany({
@@ -342,8 +322,6 @@ app.post(
   "/ai/project",
   authMiddleware,
   async (req, res) => {
-    const existingTask = await prisma.task.findUnique({ include:{ project:true }, where:{ id:String(req.params.id) } });
-    if(!existingTask || existingTask.project.ownerId !== (req as any).user.userId){ return res.status(403).json({ error:"Forbidden" }); }
 
     const { idea } = req.body;
 
@@ -366,8 +344,6 @@ app.get(
   "/workspaces/:workspaceId/projects",
   authMiddleware,
   async (req, res) => {
-    const existingTask = await prisma.task.findUnique({ include:{ project:true }, where:{ id:String(req.params.id) } });
-    if(!existingTask || existingTask.project.ownerId !== (req as any).user.userId){ return res.status(403).json({ error:"Forbidden" }); }
 
     const projects =
       await prisma.project.findMany({
@@ -438,8 +414,6 @@ app.get(
   "/channels/:workspaceId",
   authMiddleware,
   async (req, res) => {
-    const existingTask = await prisma.task.findUnique({ include:{ project:true }, where:{ id:String(req.params.id) } });
-    if(!existingTask || existingTask.project.ownerId !== (req as any).user.userId){ return res.status(403).json({ error:"Forbidden" }); }
 
     const channels =
       await prisma.channel.findMany({
@@ -459,8 +433,6 @@ app.post(
   "/channels",
   authMiddleware,
   async (req, res) => {
-    const existingTask = await prisma.task.findUnique({ include:{ project:true }, where:{ id:String(req.params.id) } });
-    if(!existingTask || existingTask.project.ownerId !== (req as any).user.userId){ return res.status(403).json({ error:"Forbidden" }); }
 
     const {
       name,
@@ -484,8 +456,6 @@ app.get(
   "/messages/:channelId",
   authMiddleware,
   async (req, res) => {
-    const existingTask = await prisma.task.findUnique({ include:{ project:true }, where:{ id:String(req.params.id) } });
-    if(!existingTask || existingTask.project.ownerId !== (req as any).user.userId){ return res.status(403).json({ error:"Forbidden" }); }
 
     const messages =
       await prisma.message.findMany({
@@ -511,8 +481,6 @@ app.post(
   "/messages",
   authMiddleware,
   async (req, res) => {
-    const existingTask = await prisma.task.findUnique({ include:{ project:true }, where:{ id:String(req.params.id) } });
-    if(!existingTask || existingTask.project.ownerId !== (req as any).user.userId){ return res.status(403).json({ error:"Forbidden" }); }
 
     const {
       content,
