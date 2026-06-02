@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import {
   LayoutDashboard,
   FolderKanban,
@@ -45,7 +47,7 @@ export default function Sidebar() {
           const Icon = item.icon;
 
           return (
-            <a
+            <Link
               key={item.href}
               href={item.href}
               className="
@@ -62,7 +64,7 @@ export default function Sidebar() {
             >
               <Icon size={18}/>
               {item.label}
-            </a>
+            </Link>
           );
         })}
       </nav>
