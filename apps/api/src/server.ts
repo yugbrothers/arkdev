@@ -300,6 +300,55 @@ app.get(
     res.json(projects);
   }
 );
+app.get(
+  "/analytics/workspaces",
+  authMiddleware,
+  async (req,res)=>{
+
+    const workspaces = await prisma.workspace.findMany({
+      where:{
+        ownerId:(req as any).user.userId
+      },
+      include:{
+        projects:{
+          include:{
+            tasks:true
+          }
+        }
+      }
+    });
+
+    const analytics = workspaces.map(workspace=>{
+
+      const projectCount = workspace.projects.length;
+
+      const allTasks = workspace.projects.flatMap(
+        project=>project.tasks
+      );
+
+      const completed = allTasks.filter(
+        task=>task.status==="done"
+      ).length;
+
+      const completionRate = allTasks.length
+        ? Math.round(completed*100/allTasks.length)
+        : 0;
+
+      return {
+        workspaceId:workspace.id,
+        workspaceName:workspace.name,
+        projects:projectCount,
+        tasks:allTasks.length,
+        completed,
+        completionRate
+      };
+
+    });
+
+    res.json(analytics);
+
+  }
+);
 
 
 

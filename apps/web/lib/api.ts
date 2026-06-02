@@ -191,3 +191,19 @@ export async function getAllTasks() {
   return response.json();
 
 }
+
+export async function getWorkspaceAnalytics(){
+
+  const response = await fetch(
+    `${API_URL}/analytics/workspaces`,
+    {
+      headers:{
+        Authorization:`Bearer ${TOKEN}`
+      },
+      cache:"no-store"
+    }
+  );
+
+  return response.json();
+
+}
