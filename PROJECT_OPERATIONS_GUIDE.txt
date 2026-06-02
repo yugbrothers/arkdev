@@ -457,3 +457,77 @@ NEXT PHASE
 
 ==================================================
 
+
+==================================================
+PHASE 14220
+==================================================
+
+DATE
+----
+2026-06-02
+
+AUTHOR
+------
+Generated with ChatGPT
+
+PURPOSE
+-------
+Integrate Teams UI with workspace member APIs.
+
+FILES CHANGED
+-------------
+apps/web/app/teams/page.tsx
+apps/web/lib/api.ts
+
+API ENDPOINTS
+-------------
+GET /workspaces/:workspaceId/members
+POST /workspaces/:workspaceId/members
+
+WEB PAGES
+---------
+/teams
+
+DATABASE MODELS USED
+--------------------
+Workspace
+WorkspaceMember
+User
+
+SECURITY IMPACT
+---------------
+Authenticated API access only.
+
+FEATURES
+--------
+Display workspace members.
+Display member email.
+Display member role.
+Load first workspace automatically.
+
+BUILD COMMANDS
+--------------
+cd apps/web
+npm run build
+
+TEST COMMANDS
+-------------
+Open /teams
+Verify members render.
+Verify roles render.
+
+RECOVERY COMMANDS
+-----------------
+cp app/teams/page.tsx.primary14221.backup app/teams/page.tsx
+cp lib/api.ts.primary14221.backup lib/api.ts
+
+STATUS
+------
+Build passing.
+
+NEXT PHASE
+----------
+14230 Member Invite UI
+
+==================================================
+

@@ -223,3 +223,46 @@ export async function getNotifications(){
   return response.json();
 
 }
+
+
+export async function getWorkspaceMembers(
+  workspaceId:string
+){
+
+  const response = await fetch(
+    `${API_URL}/workspaces/${workspaceId}/members`,
+    {
+      headers:{
+        Authorization:`Bearer ${TOKEN}`
+      },
+      cache:"no-store"
+    }
+  );
+
+  return response.json();
+
+}
+
+export async function inviteWorkspaceMember(
+  workspaceId:string,
+  email:string
+){
+
+  const response = await fetch(
+    `${API_URL}/workspaces/${workspaceId}/members`,
+    {
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+        Authorization:`Bearer ${TOKEN}`
+      },
+      body:JSON.stringify({
+        email
+      })
+    }
+  );
+
+  return response.json();
+
+}
+

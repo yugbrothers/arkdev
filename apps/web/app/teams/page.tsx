@@ -1,33 +1,76 @@
-export default function TeamsPage() {
+import {
+  getWorkspaces,
+  getWorkspaceMembers
+} from "@/lib/api";
+
+export default async function TeamsPage() {
+
+  const workspaces =
+    await getWorkspaces();
+
+  const workspace =
+    workspaces?.[0];
+
+  const members =
+    workspace
+      ? await getWorkspaceMembers(
+          workspace.id
+        )
+      : [];
+
   return (
-    <main className="pt-28 px-8">
-      <h1 className="text-6xl font-black mb-8">
+    <main className="max-w-7xl mx-auto p-8">
+
+      <h1 className="text-5xl font-bold mb-8">
         Team & Collaboration
       </h1>
 
-      <div className="space-y-6">
+      <div
+        className="
+        rounded-3xl
+        border
+        border-white/10
+        bg-white/5
+        p-8
+        "
+      >
+        <h2 className="text-2xl font-bold mb-4">
+          Workspace Members
+        </h2>
 
-        <div className="rounded-2xl border border-white/10 p-6">
-          Members
-        </div>
+        <p className="opacity-70 mb-6">
+          Workspace:
+          {" "}
+          {workspace?.name || "None"}
+        </p>
 
-        <div className="rounded-2xl border border-white/10 p-6">
-          Workspaces
-        </div>
+        <div className="grid gap-4">
 
-        <div className="rounded-2xl border border-white/10 p-6">
-          Projects
-        </div>
+          {members.map((member:any)=>(
+            <div
+              key={member.id}
+              className="
+              border
+              border-white/10
+              rounded-xl
+              p-4
+              "
+            >
+              <div>
+                {member.user?.email}
+              </div>
 
-        <div className="rounded-2xl border border-white/10 p-6">
-          Invitations
-        </div>
+              <div className="opacity-70">
+                {member.role}
+              </div>
+            </div>
+          ))}
 
-        <div className="rounded-2xl border border-white/10 p-6">
-          Roles & Permissions
         </div>
 
       </div>
+
     </main>
   );
+
 }
