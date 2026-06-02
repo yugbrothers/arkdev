@@ -641,3 +641,134 @@ NEXT PHASE
 
 ==================================================
 
+
+==================================================
+PHASE 14250
+==================================================
+
+DATE
+----
+2026-06-02
+
+AUTHOR
+------
+Generated with ChatGPT
+
+PURPOSE
+-------
+Responsive foundation patch.
+
+FILES CHANGED
+-------------
+apps/web/app/dashboard/page.tsx
+apps/web/app/workspace/page.tsx
+apps/web/app/teams/page.tsx
+apps/web/components/layout/Sidebar.tsx
+
+RESPONSIVE IMPROVEMENTS
+-----------------------
+Responsive headings
+Responsive page padding
+Responsive card padding
+Mobile sidebar hidden
+Tablet compatible
+Laptop compatible
+Desktop compatible
+
+BUILD COMMANDS
+--------------
+cd apps/web
+npm run build
+
+TEST COMMANDS
+-------------
+Dashboard
+Workspace
+Teams
+
+Mobile
+Tablet
+Laptop
+Desktop
+
+RECOVERY COMMANDS
+-----------------
+cp app/dashboard/page.tsx.primary14251.backup app/dashboard/page.tsx
+cp app/workspace/page.tsx.primary14251.backup app/workspace/page.tsx
+cp app/teams/page.tsx.primary14251.backup app/teams/page.tsx
+cp components/layout/Sidebar.tsx.primary14251.backup components/layout/Sidebar.tsx
+
+STATUS
+------
+Build passing.
+
+NEXT PHASE
+----------
+14260 Responsive audit of all remaining pages
+
+==================================================
+
+RESPONSIVE DESIGN RULE
+----------------------
+
+Priority Level: Highest
+
+Before implementing any feature:
+
+1. Mobile Audit
+2. Tablet Audit
+3. Laptop Audit
+4. Desktop Audit
+
+Required Classes:
+
+px-4 md:px-6 lg:px-8
+
+text-3xl md:text-4xl lg:text-5xl
+
+grid-cols-1
+md:grid-cols-2
+lg:grid-cols-3
+
+w-full
+
+overflow-x-hidden
+
+Never Use:
+
+fixed width layouts
+hard-coded mobile-breaking widths
+non-responsive text sizing
+
+Commit Gate:
+
+npm run build
+
+Manual verification:
+
+Dashboard
+Workspace
+Teams
+Projects
+Analytics
+Profile
+Settings
+
+Mobile
+Tablet
+Laptop
+Desktop
+
+MANDATORY GUIDE RULE
+--------------------
+
+Guide update must happen BEFORE git add.
+
+Verification:
+
+git diff PROJECT_OPERATIONS_GUIDE.txt
+
+must show changes before commit.
+
+==================================================
+

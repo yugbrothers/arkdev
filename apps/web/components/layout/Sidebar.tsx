@@ -28,6 +28,7 @@ export default function Sidebar() {
   return (
     <aside
       className="
+      hidden lg:block
       w-72
       min-h-screen
       border-r
