@@ -206,25 +206,6 @@ app.patch(
   }
 );
 
-app.patch(
-  "/tasks/:taskId",
-  authMiddleware,
-  async (req, res) => {
-    const { taskId } = req.params;
-    const { status } = req.body;
-
-    const task = await prisma.task.update({
-      where: {
-        id: String(taskId)
-      },
-      data: {
-        status
-      }
-    });
-
-    res.json(task);
-  }
-);
 
 app.post(
   "/workspaces",
