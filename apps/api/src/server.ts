@@ -445,6 +445,59 @@ app.post(
 );
 
 
+app.delete(
+  "/workspaces/:workspaceId/members/:memberId",
+  authMiddleware,
+  async (req, res) => {
+
+    const workspace =
+      await prisma.workspace.findFirst({
+        where:{
+          id:String(req.params.workspaceId),
+          ownerId:(req as any).user.userId
+        }
+      });
+
+    if(!workspace){
+      return res.status(404).json({
+        error:"Workspace not found"
+      });
+    }
+
+    const member =
+      await prisma.workspaceMember.findFirst({
+        where:{
+          id:String(req.params.memberId),
+          workspaceId:workspace.id
+        }
+      });
+
+    if(!member){
+      return res.status(404).json({
+        error:"Member not found"
+      });
+    }
+
+    await prisma.workspaceMember.delete({
+      where:{
+        id:member.id
+      }
+    });
+
+    await prisma.notification.create({
+      data:{
+        message:"Workspace member removed"
+      }
+    });
+
+    res.json({
+      success:true
+    });
+
+  }
+);
+
+
 app.get(
   "/analytics/workspaces",
   authMiddleware,
