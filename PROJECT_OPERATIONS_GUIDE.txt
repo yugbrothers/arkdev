@@ -258,3 +258,29 @@ Latest Stable Commit:
 
 b73daec
 
+
+==================================================
+PHASE 2 SECURITY HARDENING
+==================================================
+
+DATE:
+2026-06-02
+
+CHANGES
+-------
+
+✓ Secured project creation ownership
+✓ Secured task creation ownership
+✓ Secured task viewing ownership
+✓ Secured task update ownership
+
+SECURITY MODEL
+--------------
+
+Workspace Owner
+  └─ Projects
+      └─ Tasks
+
+Users can only access resources
+that belong to their ownership tree.
+

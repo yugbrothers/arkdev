@@ -121,21 +121,41 @@ app.post(
   "/projects",
   authMiddleware,
   async (req, res) => {
+
     const userId = (req as any).user.userId;
 
-    const { name, description, workspaceId } = req.body;
+    const {
+      name,
+      description,
+      workspaceId
+    } = req.body;
+
+    const workspace =
+      await prisma.workspace.findFirst({
+        where:{
+          id:workspaceId,
+          ownerId:userId
+        }
+      });
+
+    if(!workspace){
+      return res.status(403).json({
+        error:"Forbidden"
+      });
+    }
 
     const project =
       await prisma.project.create({
-        data: {
+        data:{
           name,
           description,
-          ownerId: userId,
+          ownerId:userId,
           workspaceId
         }
       });
 
     res.json(project);
+
   }
 );
 
@@ -144,10 +164,24 @@ app.get(
   authMiddleware,
   async (req, res) => {
 
+    const project =
+      await prisma.project.findFirst({
+        where:{
+          id:String(req.params.projectId),
+          ownerId:(req as any).user.userId
+        }
+      });
+
+    if(!project){
+      return res.status(403).json({
+        error:"Forbidden"
+      });
+    }
+
     const tasks =
       await prisma.task.findMany({
-        where: {
-          projectId: String(req.params.projectId)
+        where:{
+          projectId:String(req.params.projectId)
         }
       });
 
@@ -183,15 +217,30 @@ app.post(
       projectId
     } = req.body;
 
+    const project =
+      await prisma.project.findFirst({
+        where:{
+          id:projectId,
+          ownerId:(req as any).user.userId
+        }
+      });
+
+    if(!project){
+      return res.status(403).json({
+        error:"Forbidden"
+      });
+    }
+
     const task =
       await prisma.task.create({
-        data: {
+        data:{
           title,
           projectId
         }
       });
 
     res.json(task);
+
   }
 );
 
