@@ -379,6 +379,72 @@ app.get(
   }
 );
 
+app.post(
+  "/workspaces/:workspaceId/members",
+  authMiddleware,
+  async (req, res) => {
+
+    const { email } = req.body;
+
+    const workspace =
+      await prisma.workspace.findFirst({
+        where:{
+          id:String(req.params.workspaceId),
+          ownerId:(req as any).user.userId
+        }
+      });
+
+    if(!workspace){
+      return res.status(404).json({
+        error:"Workspace not found"
+      });
+    }
+
+    const user =
+      await prisma.user.findUnique({
+        where:{ email }
+      });
+
+    if(!user){
+      return res.status(404).json({
+        error:"User not found"
+      });
+    }
+
+    const existingMember =
+      await prisma.workspaceMember.findFirst({
+        where:{
+          workspaceId:workspace.id,
+          userId:user.id
+        }
+      });
+
+    if(existingMember){
+      return res.status(400).json({
+        error:"User already a member"
+      });
+    }
+
+    const member =
+      await prisma.workspaceMember.create({
+        data:{
+          workspaceId:workspace.id,
+          userId:user.id
+        }
+      });
+
+    await prisma.notification.create({
+      data:{
+        message:`${user.email} added to ${workspace.name}`
+      }
+    });
+
+    res.json(member);
+
+  }
+);
+
+
 app.get(
   "/analytics/workspaces",
   authMiddleware,
