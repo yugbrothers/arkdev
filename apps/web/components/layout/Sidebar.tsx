@@ -7,7 +7,8 @@ import {
   Bot,
   BarChart3,
   User,
-  Settings
+  Settings,
+  Users
 } from "lucide-react";
 
 const links = [
@@ -16,6 +17,7 @@ const links = [
   { href:"/workspace", label:"Workspace", icon:Briefcase },
   { href:"/ai", label:"AI Assistant", icon:Bot },
   { href:"/analytics", label:"Analytics", icon:BarChart3 },
+  { href:"/teams", label:"Team & Collaboration", icon:Users },
   { href:"/profile", label:"Profile", icon:User },
   { href:"/settings", label:"Settings", icon:Settings }
 ];

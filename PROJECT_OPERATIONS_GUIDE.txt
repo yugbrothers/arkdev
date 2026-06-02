@@ -284,3 +284,32 @@ Workspace Owner
 Users can only access resources
 that belong to their ownership tree.
 
+
+==================================================
+PHASE 4 TEAM & FOUNDER PORTAL
+==================================================
+
+ROUTES
+
+/teams
+/portfolio
+
+NAVIGATION
+
+Team & Collaboration visible
+
+Portfolio hidden from navigation
+
+FOUNDER
+
+Founder profile only available through:
+
+/portfolio
+
+PURPOSE
+
+Public users do not see founder details
+through normal navigation.
+
+Direct portfolio URL remains accessible.
+
