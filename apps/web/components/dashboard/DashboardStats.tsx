@@ -1,12 +1,38 @@
-import { getProjects, getWorkspaces } from "@/lib/api";
+import {
+  getProjects,
+  getWorkspaces,
+  getAllTasks
+} from "@/lib/api";
+
 import StatCard from "./StatCard";
 
-export default async function DashboardStats() {
-  const projects = await getProjects();
-  const workspaces = await getWorkspaces();
+export default async function DashboardStats(){
 
-  return (
-    <div className="grid md:grid-cols-3 gap-6">
+  const projects =
+    await getProjects();
+
+  const workspaces =
+    await getWorkspaces();
+
+  const tasks =
+    await getAllTasks();
+
+  const completed =
+    tasks.filter(
+      (task:any)=>
+        task.status === "done"
+    ).length;
+
+  return(
+
+    <div
+      className="
+      grid
+      md:grid-cols-4
+      gap-6
+      "
+    >
+
       <StatCard
         title="Projects"
         value={projects.length}
@@ -18,9 +44,17 @@ export default async function DashboardStats() {
       />
 
       <StatCard
-        title="Status"
-        value="Online"
+        title="Tasks"
+        value={tasks.length}
       />
+
+      <StatCard
+        title="Completed"
+        value={completed}
+      />
+
     </div>
+
   );
+
 }

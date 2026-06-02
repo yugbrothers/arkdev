@@ -154,6 +154,18 @@ app.get(
     res.json(tasks);
   }
 );
+app.get(
+  "/tasks",
+  authMiddleware,
+  async (req,res)=>{
+
+    const tasks =
+      await prisma.task.findMany();
+
+    res.json(tasks);
+
+  }
+);
 
 app.post(
   "/tasks",

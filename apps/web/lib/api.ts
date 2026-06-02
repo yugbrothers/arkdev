@@ -175,3 +175,19 @@ export async function createWorkspace(
 
 }
 
+
+export async function getAllTasks() {
+
+  const response = await fetch(
+    `${API_URL}/tasks`,
+    {
+      headers: {
+        Authorization: `Bearer ${TOKEN}`
+      },
+      cache: "no-store"
+    }
+  );
+
+  return response.json();
+
+}
