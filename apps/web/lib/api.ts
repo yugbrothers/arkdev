@@ -207,3 +207,19 @@ export async function getWorkspaceAnalytics(){
   return response.json();
 
 }
+
+export async function getNotifications(){
+
+  const response = await fetch(
+    `${API_URL}/notifications`,
+    {
+      headers:{
+        Authorization:`Bearer ${TOKEN}`
+      },
+      cache:"no-store"
+    }
+  );
+
+  return response.json();
+
+}
