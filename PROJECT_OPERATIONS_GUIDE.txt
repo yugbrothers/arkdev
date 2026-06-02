@@ -1,0 +1,260 @@
+ARKDEV COMPLETE OPERATIONS GUIDE
+================================
+
+PROJECT STRUCTURE
+-----------------
+
+apps/
+├── api/
+│   ├── prisma/
+│   ├── src/
+│   └── package.json
+│
+├── web/
+│   ├── app/
+│   ├── components/
+│   ├── lib/
+│   └── package.json
+
+
+CURRENT FEATURES
+----------------
+
+✓ Authentication
+✓ Workspace Creation
+✓ Project Creation
+✓ Task Creation
+✓ Kanban Board
+✓ Dashboard Metrics
+✓ Workspace Analytics
+✓ Notifications Page
+✓ Activity Feed
+✓ AI Project Generator
+
+
+DATABASE MODELS
+---------------
+
+Workspace
+Project
+Task
+Notification
+Channel
+Message
+WorkspaceMember
+User
+
+
+API ROUTES
+----------
+
+POST   /workspaces
+GET    /workspaces
+
+POST   /projects
+GET    /projects
+
+GET    /tasks
+GET    /tasks/:projectId
+POST   /tasks
+PATCH  /tasks/:id
+
+GET    /notifications
+
+GET    /analytics/workspaces
+
+POST   /channels
+GET    /channels/:workspaceId
+
+POST   /ai/project
+
+
+SECURITY IMPLEMENTED
+--------------------
+
+✓ Auth Middleware
+✓ Workspace Ownership Checks
+✓ Task Owner Checks
+✓ Protected Task Updates
+✓ Duplicate Routes Removed
+
+
+WEB ROUTES
+----------
+
+/
+/dashboard
+/projects
+/workspace
+/analytics
+/notifications
+/ai
+/channels
+/community
+/profile
+/settings
+
+
+IMPORTANT FILES
+---------------
+
+apps/api/src/server.ts
+Main backend routes
+
+apps/api/prisma/schema.prisma
+Database schema
+
+apps/web/lib/api.ts
+Frontend API calls
+
+apps/web/components/
+UI components
+
+apps/web/app/
+Next.js pages
+
+
+RUN PROJECT
+-----------
+
+TERMINAL 1
+
+cd ~/ALLdev/ArkDev/apps/api
+npm install
+npm run dev
+
+
+TERMINAL 2
+
+cd ~/ALLdev/ArkDev/apps/web
+npm install
+npm run dev
+
+
+BUILD PROJECT
+-------------
+
+cd ~/ALLdev/ArkDev/apps/api
+npm run build
+
+cd ~/ALLdev/ArkDev/apps/web
+npm run build
+
+
+GIT WORKFLOW
+------------
+
+git status
+
+git add .
+
+git commit -m "message"
+
+git push origin main
+
+
+CHECK RECENT COMMITS
+--------------------
+
+git log --oneline -10
+
+
+RECOVER PROJECT
+---------------
+
+git checkout main
+
+git pull origin main
+
+npm install
+
+cd apps/api
+npm run build
+
+cd ../web
+npm run build
+
+
+WHEN ADDING NEW FEATURE
+-----------------------
+
+1. Create backup
+
+cp file.ts file.ts.backup
+
+2. Edit code
+
+3. Verify
+
+npm run build
+
+4. Test route
+
+5. Commit
+
+git add .
+git commit -m "feature"
+
+6. Push
+
+git push origin main
+
+7. Remove backup
+
+rm *.backup
+
+
+MANDATORY UPDATE LOG RULE
+-------------------------
+
+EVERY FEATURE MUST UPDATE:
+
+PROJECT_OPERATIONS_GUIDE.txt
+
+Include:
+
+- What changed
+- Why changed
+- Routes added
+- Files modified
+- Database changes
+- Commands required
+- Future maintenance notes
+
+
+FUTURE ROADMAP
+--------------
+
+[ ] Task Assignees
+[ ] Due Dates
+[ ] Real-time Notifications
+[ ] Workspace Invitations
+[ ] Role Permissions
+[ ] Audit Logs
+[ ] Search Engine
+[ ] File Uploads
+[ ] Activity Persistence
+[ ] AI Agent Automation
+
+
+HANDOVER PROCESS
+----------------
+
+If transferring project:
+
+1. Give source code
+2. Give .env values
+3. Give database access
+4. Give Render deployment access
+5. Give GitHub repository access
+6. Give this guide file
+7. Give latest commit hash
+
+Current Stable Branch:
+
+main
+
+Latest Stable Commit:
+
+b73daec
+
