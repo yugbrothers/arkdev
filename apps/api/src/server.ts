@@ -358,6 +358,28 @@ app.get(
   }
 );
 app.get(
+  "/workspaces/:workspaceId/members",
+  authMiddleware,
+  async (req, res) => {
+
+    const members =
+      await prisma.workspaceMember.findMany({
+        where:{
+          workspaceId:String(
+            req.params.workspaceId
+          )
+        },
+        include:{
+          user:true
+        }
+      });
+
+    res.json(members);
+
+  }
+);
+
+app.get(
   "/analytics/workspaces",
   authMiddleware,
   async (req,res)=>{
