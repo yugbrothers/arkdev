@@ -498,6 +498,63 @@ app.delete(
 );
 
 
+app.patch(
+  "/workspaces/:workspaceId/members/:memberId",
+  authMiddleware,
+  async (req, res) => {
+
+    const { role } = req.body;
+
+    const workspace =
+      await prisma.workspace.findFirst({
+        where:{
+          id:String(req.params.workspaceId),
+          ownerId:(req as any).user.userId
+        }
+      });
+
+    if(!workspace){
+      return res.status(404).json({
+        error:"Workspace not found"
+      });
+    }
+
+    const member =
+      await prisma.workspaceMember.findFirst({
+        where:{
+          id:String(req.params.memberId),
+          workspaceId:workspace.id
+        }
+      });
+
+    if(!member){
+      return res.status(404).json({
+        error:"Member not found"
+      });
+    }
+
+    const updatedMember =
+      await prisma.workspaceMember.update({
+        where:{
+          id:member.id
+        },
+        data:{
+          role
+        }
+      });
+
+    await prisma.notification.create({
+      data:{
+        message:`Member role updated to ${role}`
+      }
+    });
+
+    res.json(updatedMember);
+
+  }
+);
+
+
 app.get(
   "/analytics/workspaces",
   authMiddleware,

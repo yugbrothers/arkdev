@@ -393,3 +393,67 @@ AUTHOR
 Generated with ChatGPT
 Reviewed by Project Maintainer
 
+
+==================================================
+PHASE 14180
+==================================================
+
+DATE
+----
+2026-06-02
+
+AUTHOR
+------
+Generated with ChatGPT
+
+PURPOSE
+-------
+Add workspace member role update endpoint.
+
+FILES CHANGED
+-------------
+apps/api/src/server.ts
+
+API ENDPOINTS
+-------------
+PATCH /workspaces/:workspaceId/members/:memberId
+
+REQUEST
+-------
+{
+  "role":"admin"
+}
+
+DATABASE MODELS USED
+--------------------
+Workspace
+WorkspaceMember
+Notification
+
+SECURITY IMPACT
+---------------
+Workspace owner validation enforced.
+
+BUILD COMMANDS
+--------------
+cd apps/api
+npm run build
+
+TEST COMMANDS
+-------------
+PATCH Member Role
+
+RECOVERY COMMANDS
+-----------------
+cp src/server.ts.primary14180.backup src/server.ts
+
+STATUS
+------
+Build passing.
+
+NEXT PHASE
+----------
+14200 Teams UI Integration
+
+==================================================
+
