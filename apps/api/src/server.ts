@@ -154,6 +154,13 @@ app.post(
         }
       });
 
+
+    await prisma.notification.create({
+      data:{
+        message:`Project created: ${project.name}`
+      }
+    });
+    await prisma.notification.create({ data:{ message:`Project created: ${project.name}` } });
     res.json(project);
 
   }
@@ -239,6 +246,13 @@ app.post(
         }
       });
 
+
+    await prisma.notification.create({
+      data:{
+        message:`Task created: ${task.title}`
+      }
+    });
+    await prisma.notification.create({ data:{ message:`Task created: ${task.title}` } });
     res.json(task);
 
   }
@@ -251,6 +265,10 @@ app.patch(
 
     const existingTask =
       await prisma.task.findUnique({
+
+    if(!existingTask || existingTask.project.ownerId !== (req as any).user.userId){
+      return res.status(403).json({ error:"Forbidden" });
+    }
         where:{
           id:String(req.params.id)
         },
@@ -277,7 +295,13 @@ app.patch(
         data:req.body
       });
 
-    res.json(task);
+
+    await prisma.notification.create({
+      data:{
+        message:`Task updated: ${task.title}`
+      }
+    await prisma.notification.create({ data:{ message:`Task created: ${task.title}` } });
+    });    res.json(task);
 
   }
 );
@@ -298,6 +322,13 @@ app.post(
         }
       });
 
+
+    await prisma.notification.create({
+      data:{
+        message:`Workspace created: ${workspace.name}`
+      }
+    });
+    await prisma.notification.create({ data:{ message:`Workspace created: ${workspace.name}` } });
     res.json(workspace);
   }
 );
