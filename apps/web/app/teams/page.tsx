@@ -2,6 +2,7 @@ import {
   getWorkspaces,
   getWorkspaceMembers
 } from "@/lib/api";
+import InviteMemberForm from "@/components/teams/InviteMemberForm";
 
 export default async function TeamsPage() {
 
@@ -43,6 +44,8 @@ export default async function TeamsPage() {
           {" "}
           {workspace?.name || "None"}
         </p>
+
+        <InviteMemberForm />
 
         <div className="grid gap-4">
 
