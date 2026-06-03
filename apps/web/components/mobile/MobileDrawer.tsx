@@ -53,7 +53,7 @@ export default function MobileDrawer() {
             top-0
             left-0
             h-full
-            w-72
+            w-[85vw] max-w-sm
             bg-black
             border-r
             border-white/10

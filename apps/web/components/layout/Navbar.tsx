@@ -24,7 +24,7 @@ export default function Navbar() {
         max-w-7xl
         mx-auto
         h-20
-        px-8
+        px-4 md:px-6 lg:px-8
         flex
         items-center
         justify-between
@@ -33,7 +33,7 @@ export default function Navbar() {
         <a
           href="/"
           className="
-          text-5xl
+          text-2xl md:text-4xl lg:text-5xl
           font-black
           ark-logo
           "

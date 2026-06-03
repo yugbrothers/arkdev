@@ -29,7 +29,7 @@ export default function Sidebar() {
     <aside
       className="
       hidden lg:block
-      w-72
+      w-64 xl:w-72
       min-h-screen
       border-r
       border-white/10
