@@ -37,8 +37,8 @@ export default function ArkAssistant(){
           bottom-24
           right-8
           z-[9998]
-          w-[360px]
-          h-[500px]
+          w-full max-w-sm md:max-w-md lg:max-w-lg
+          h-[70vh] max-h-[700px] min-h-[400px]
           rounded-2xl
           border
           border-white/10

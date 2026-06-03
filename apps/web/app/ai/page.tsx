@@ -3,7 +3,7 @@ from "@/lib/api";
 
 export default function AIPage() {
   return (
-    <main className="max-w-7xl mx-auto p-8">
+    <main className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-6">
       <h1 className="text-5xl font-bold mb-8">
         AI Assistant
       </h1>
@@ -14,7 +14,7 @@ export default function AIPage() {
         border
         border-white/10
         bg-white/5
-        p-8
+        px-4 md:px-6 lg:px-8 py-6
         "
       >
         <textarea

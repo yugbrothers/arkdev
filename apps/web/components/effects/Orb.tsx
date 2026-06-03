@@ -9,8 +9,8 @@ export default function Orb() {
       left-1/2
       -translate-x-1/2
       -translate-y-1/2
-      h-[500px]
-      w-[500px]
+      h-[60vw] max-h-[500px]
+      w-[60vw] max-w-[500px]
       rounded-full
       blur-3xl
       opacity-20

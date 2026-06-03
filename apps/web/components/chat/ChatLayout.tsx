@@ -5,7 +5,7 @@ export default function ChatLayout() {
       grid
       md:grid-cols-[250px_1fr_250px]
       gap-4
-      h-[700px]
+      h-[75vh] min-h-[500px] max-h-[1000px]
       "
     >
 

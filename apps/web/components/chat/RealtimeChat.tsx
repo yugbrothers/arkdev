@@ -135,7 +135,7 @@ export default function RealtimeChat(){
         border-white/10
         rounded-2xl
         p-4
-        h-[450px]
+        h-[60vh] min-h-[400px] max-h-[800px]
         overflow-auto
         bg-white/5
         "

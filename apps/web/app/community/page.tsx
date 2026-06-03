@@ -83,7 +83,7 @@ export default function CommunityPage() {
           rounded-3xl
           border
           border-white/10
-          h-[650px]
+          min-h-[70vh]
           p-6
           "
         >

@@ -658,3 +658,28 @@ rgba(96,165,250,.9)
   100%{transform:translateY(0);}
 }
 
+
+/* PRIMARY 14285 RESPONSIVE SYSTEM */
+
+html{
+  width:100%;
+  overflow-x:hidden;
+}
+
+body{
+  width:100%;
+  overflow-x:hidden;
+}
+
+img,
+video,
+canvas,
+svg{
+  max-width:100%;
+  height:auto;
+}
+
+*{
+  box-sizing:border-box;
+}
+
