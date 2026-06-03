@@ -84,6 +84,8 @@ export default function Navbar() {
             <div className="nav-dropdown">
               <a href="/ai">AI Assistant</a>
               <a href="/studio-ai">Ark Studio AI</a>
+              <a href="/music-gen">Ark MusicGen</a>
+              <a href="/video-gen">Ark VideoGen</a>
             </div>
           </div>
 
