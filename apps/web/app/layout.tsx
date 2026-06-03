@@ -1,6 +1,5 @@
 import ThreeOrb from "@/components/three/ThreeOrb";
 import Navbar from "@/components/layout/Navbar";
-import ArkMascot from "@/components/mascot/ArkMascot";
 import ArkAssistant from "@/components/assistant/ArkAssistant";
 import NotificationCounter from "@/components/notifications/NotificationCounter";
 import PresenceStatus from "@/components/presence/PresenceStatus";
@@ -27,7 +26,6 @@ export default function RootLayout({
           <BackgroundMusic />
           <NotificationCounter />
           <PresenceStatus />
-          <ArkMascot />
           <ArkAssistant />
           <Navbar />
           {children}

@@ -1,7 +1,6 @@
 "use client";
 
 import NotificationBell from "@/components/notifications/NotificationBell";
-import ThemeToggle from "@/components/ui/theme-toggle";
 import MobileDrawer from "@/components/mobile/MobileDrawer";
 
 export default function Navbar() {
@@ -23,7 +22,7 @@ export default function Navbar() {
         className="
         max-w-7xl
         mx-auto
-        h-20
+        h-16 lg:h-20
         px-4 md:px-6 lg:px-8
         flex
         items-center
@@ -33,7 +32,7 @@ export default function Navbar() {
         <a
           href="/"
           className="
-          text-2xl md:text-4xl lg:text-5xl
+          text-2xl md:text-3xl lg:text-4xl
           font-black
           ark-logo
           "
@@ -46,7 +45,7 @@ export default function Navbar() {
           hidden
           md:flex
           items-center
-          gap-8
+          gap-6 xl:gap-8
           "
         >
           <a href="/">Home</a>
@@ -79,12 +78,19 @@ export default function Navbar() {
             </div>
           </div>
 
-          <a href="/ai">AI</a>
+          <div className="nav-group">
+            <span>AI ▾</span>
+
+            <div className="nav-dropdown">
+              <a href="/ai">AI Assistant</a>
+              <a href="/studio-ai">Ark Studio AI</a>
+            </div>
+          </div>
 
           <a href="/about">About</a>
         </nav>
 
-        <div className="flex items-center gap-4"><MobileDrawer /><NotificationBell /><ThemeToggle /></div>
+        <div className="flex items-center gap-4"><MobileDrawer /><NotificationBell /></div>
       </div>
     </header>
   );

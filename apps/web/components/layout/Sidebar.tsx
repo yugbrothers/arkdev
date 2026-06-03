@@ -18,6 +18,7 @@ const links = [
   { href:"/projects", label:"Projects", icon:FolderKanban },
   { href:"/workspace", label:"Workspace", icon:Briefcase },
   { href:"/ai", label:"AI Assistant", icon:Bot },
+  { href:"/studio-ai", label:"Ark Studio AI", icon:Bot },
   { href:"/analytics", label:"Analytics", icon:BarChart3 },
   { href:"/teams", label:"Team & Collaboration", icon:Users },
   { href:"/profile", label:"Profile", icon:User },

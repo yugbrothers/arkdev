@@ -12,6 +12,7 @@ const links = [
   { href:"/teams", label:"Team & Collaboration" },
   { href:"/analytics", label:"Analytics" },
   { href:"/ai", label:"AI Assistant" },
+  { href:"/studio-ai", label:"Ark Studio AI" },
   { href:"/profile", label:"Profile" },
   { href:"/settings", label:"Settings" }
 ];
