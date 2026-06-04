@@ -6,3 +6,10 @@ build
 .env.local
 coverage
 .DS_Store
+
+# Local media storage
+videos/
+
+# Local backups
+*.primary*.backup
+
