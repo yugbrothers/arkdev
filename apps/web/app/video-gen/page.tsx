@@ -1,6 +1,65 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
+type MusicAsset = {
+  id:string;
+  prompt:string;
+};
+
+type VideoAsset = {
+  id:string;
+  prompt:string;
+  musicId:string;
+  video:string;
+};
+
 export default function VideoGenPage() {
+
+  const [prompt,setPrompt] = useState("");
+  const [musicId,setMusicId] = useState("");
+
+  const [musicAssets,setMusicAssets] =
+    useState<MusicAsset[]>([]);
+
+  const [videoAssets,setVideoAssets] =
+    useState<VideoAsset[]>([]);
+
+  async function generateVideo() {
+
+    const res = await fetch(
+      "/api/video-generate",
+      {
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+          prompt,
+          musicId
+        })
+      }
+    );
+
+    const asset = await res.json();
+
+    setVideoAssets(prev => [
+      asset,
+      ...prev
+    ]);
+  }
+
+  useEffect(()=>{
+
+    fetch("/api/music-assets")
+      .then(r=>r.json())
+      .then(setMusicAssets);
+
+    fetch("/api/video-assets")
+      .then(r=>r.json())
+      .then(setVideoAssets);
+
+  },[]);
 
   return (
     <main className="max-w-7xl mx-auto px-4 py-8">
@@ -16,72 +75,74 @@ export default function VideoGenPage() {
       <div className="grid gap-6">
 
         <section className="rounded-3xl border p-6">
-          <h2 className="text-xl font-bold">
+
+          <h2 className="text-xl font-bold mb-4">
             Video Creator
           </h2>
-        </section>
 
-        <section className="rounded-3xl border p-6">
-          <h2 className="text-xl font-bold">
-            Asset Library
-          </h2>
-        </section>
+          <textarea
+            value={prompt}
+            onChange={(e)=>
+              setPrompt(e.target.value)
+            }
+            placeholder="Describe your video..."
+            className="w-full min-h-40 rounded-xl border p-4"
+          />
 
-        <section className="rounded-3xl border p-6">
-          <h2 className="text-xl font-bold">
-            Music Attachment
-          </h2>
-        </section>
+          <select
+            value={musicId}
+            onChange={(e)=>
+              setMusicId(e.target.value)
+            }
+            className="w-full rounded-xl border p-3 mt-4"
+          >
+            <option value="">
+              Select Music Asset
+            </option>
 
-        <section className="rounded-3xl border p-6">
-          <h2 className="text-xl font-bold">
-            Blog Inspiration Feed
-          </h2>
-
-          <div className="grid gap-4 mt-4 md:grid-cols-3">
-
-            <div className="rounded-xl border p-4">
-              Viral Shorts
-            </div>
-
-            <div className="rounded-xl border p-4">
-              AI Content Ideas
-            </div>
-
-            <div className="rounded-xl border p-4">
-              Trending Reels
-            </div>
-
-          </div>
-
-        </section>
-
-        <section className="rounded-3xl border p-6">
-          <h2 className="text-xl font-bold">
-            Export MP4
-          </h2>
+            {musicAssets.map(asset=>(
+              <option
+                key={asset.id}
+                value={asset.id}
+              >
+                {asset.prompt}
+              </option>
+            ))}
+          </select>
 
           <button
+            onClick={generateVideo}
             className="mt-4 px-5 py-3 rounded-xl border"
           >
-            Download Video
+            Generate Video
           </button>
+
         </section>
 
         <section className="rounded-3xl border p-6">
-          <h2 className="text-xl font-bold">
-            Publish Center
+
+          <h2 className="text-xl font-bold mb-4">
+            Video Library
           </h2>
 
-          <div className="flex gap-4 mt-4">
+          <div className="grid gap-4">
 
-            <button className="rounded-xl border px-4 py-2">
-              YouTube
-            </button>
+            {videoAssets.map(asset=>(
+              <div
+                key={asset.id}
+                className="rounded-xl border p-4"
+              >
+                <p>{asset.prompt}</p>
 
-            <button className="rounded-xl border px-4 py-2">
-              Instagram
-            </button>
+                <a
+                  href={asset.video}
+                  target="_blank"
+                  className="inline-block mt-3 border rounded-xl px-3 py-2"
+                >
+                  Download MP4
+                </a>
+              </div>
+            ))}
 
           </div>
 
