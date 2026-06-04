@@ -4,11 +4,30 @@ import { useState } from "react";
 
 import PromptForm from "@/components/studio/PromptForm";
 import AssetLibrary from "@/components/studio/AssetLibrary";
+import { GeneratedAsset } from "@/components/studio/types";
 
 export default function StudioAIPage() {
 
-  const [image, setImage] = useState("");
-  const [prompt, setPrompt] = useState("");
+  const [assets,setAssets] = useState<GeneratedAsset[]>([]);
+
+  function addAsset(
+    image:string,
+    prompt:string
+  ) {
+
+    const asset:GeneratedAsset = {
+      id: crypto.randomUUID(),
+      image,
+      prompt,
+      createdAt:
+        new Date().toLocaleString()
+    };
+
+    setAssets(prev => [
+      asset,
+      ...prev
+    ]);
+  }
 
   return (
     <main className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-8">
@@ -27,24 +46,16 @@ export default function StudioAIPage() {
           Create Images • Music • Videos
         </p>
 
-        <p className="mt-2 opacity-60">
-          Creator Studio for AI Content Production
-        </p>
-
       </div>
 
       <div className="grid gap-6 lg:grid-cols-2">
 
         <PromptForm
-          onImageGenerated={(generatedImage,generatedPrompt)=>{
-            setImage(generatedImage);
-            setPrompt(generatedPrompt);
-          }}
+          onImageGenerated={addAsset}
         />
 
         <AssetLibrary
-          image={image}
-          prompt={prompt}
+          assets={assets}
         />
 
       </div>

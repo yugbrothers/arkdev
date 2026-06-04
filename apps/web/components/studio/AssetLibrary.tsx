@@ -1,11 +1,11 @@
+import { GeneratedAsset } from "./types";
+
 type Props = {
-  image?: string;
-  prompt?: string;
+  assets: GeneratedAsset[];
 };
 
 export default function AssetLibrary({
-  image,
-  prompt
+  assets
 }: Props) {
 
   return (
@@ -15,27 +15,43 @@ export default function AssetLibrary({
         Asset Library
       </h2>
 
-      {!image && (
-        <p>
-          Generated assets will appear here.
-        </p>
+      {assets.length === 0 && (
+        <p>No generated assets yet.</p>
       )}
 
-      {image && (
-        <div>
+      <div className="grid gap-4">
 
-          <img
-            src={image}
-            alt={prompt}
-            className="rounded-xl mb-4"
-          />
+        {assets.map(asset => (
+          <div
+            key={asset.id}
+            className="rounded-xl border p-4"
+          >
+            <img
+              src={asset.image}
+              alt={asset.prompt}
+              className="rounded-xl mb-3"
+            />
 
-          <p className="text-sm opacity-80">
-            {prompt}
-          </p>
+            <p className="text-sm">
+              {asset.prompt}
+            </p>
 
-        </div>
-      )}
+            <p className="text-xs opacity-60 mt-2">
+              {asset.createdAt}
+            </p>
+
+            <a
+              href={asset.image}
+              target="_blank"
+              className="inline-block mt-3 border rounded-xl px-3 py-2"
+            >
+              Download
+            </a>
+
+          </div>
+        ))}
+
+      </div>
 
     </div>
   );
