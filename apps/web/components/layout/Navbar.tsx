@@ -76,6 +76,7 @@ export default function Navbar() {
               <a href="/studio-ai">Ark Studio AI</a>
               <a href="/music-gen">Ark MusicGen</a>
               <a href="/video-gen">Ark VideoGen</a>
+              <a href="/portfolio">Portfolio</a>
             </div>
           </div>
 

@@ -1,6 +1,8 @@
 export default function PortfolioPage() {
+
   return (
-    <main className="relative min-h-screen overflow-hidden">
+
+    <main className="relative min-h-[6000px]">
 
       <video
         autoPlay
@@ -8,10 +10,11 @@ export default function PortfolioPage() {
         loop
         playsInline
         className="
-        fixed
-        inset-0
-        h-full
+        absolute
+        top-0
+        left-0
         w-full
+        h-full
         object-cover
         -z-10
         "
@@ -22,59 +25,51 @@ export default function PortfolioPage() {
         />
       </video>
 
-      <div className="absolute inset-0 bg-black/60 -z-10" />
+      <div className="absolute inset-0 bg-black/55 -z-10" />
 
-      <section className="max-w-7xl mx-auto px-6 py-32">
+      <div className="max-w-7xl mx-auto px-6 py-32">
 
-        <h1 className="text-7xl font-black mb-6">
-          ARK PORTFOLIO
-        </h1>
+        <section className="mb-[700px]">
+          <h1 className="text-8xl font-black">
+            ARK PORTFOLIO
+          </h1>
 
-        <p className="text-xl opacity-80 mb-16">
-          AI Startup • Software Products • Creator Platform
-        </p>
+          <p className="mt-6 text-2xl opacity-80">
+            Software Engineer • AI Builder • Startup Founder
+          </p>
+        </section>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <section className="mb-[700px]">
+          <h2 className="text-5xl font-bold mb-8">
+            Featured Products
+          </h2>
+        </section>
 
-          <div className="rounded-3xl border border-white/20 bg-white/5 p-6">
-            <h2 className="text-2xl font-bold">
-              Startup Profile
-            </h2>
-          </div>
+        <section className="mb-[700px]">
+          <h2 className="text-5xl font-bold mb-8">
+            AI Systems
+          </h2>
+        </section>
 
-          <div className="rounded-3xl border border-white/20 bg-white/5 p-6">
-            <h2 className="text-2xl font-bold">
-              Products
-            </h2>
-          </div>
+        <section className="mb-[700px]">
+          <h2 className="text-5xl font-bold mb-8">
+            Startup Journey
+          </h2>
+        </section>
 
-          <div className="rounded-3xl border border-white/20 bg-white/5 p-6">
-            <h2 className="text-2xl font-bold">
-              AI Solutions
-            </h2>
-          </div>
+        <section className="mb-[700px]">
+          <h2 className="text-5xl font-bold mb-8">
+            Technical Stack
+          </h2>
+        </section>
 
-          <div className="rounded-3xl border border-white/20 bg-white/5 p-6">
-            <h2 className="text-2xl font-bold">
-              Creator Tools
-            </h2>
-          </div>
+        <section className="mb-[700px]">
+          <h2 className="text-5xl font-bold mb-8">
+            Hiring & Contact
+          </h2>
+        </section>
 
-          <div className="rounded-3xl border border-white/20 bg-white/5 p-6">
-            <h2 className="text-2xl font-bold">
-              Technical Skills
-            </h2>
-          </div>
-
-          <div className="rounded-3xl border border-white/20 bg-white/5 p-6">
-            <h2 className="text-2xl font-bold">
-              Contact & Hiring
-            </h2>
-          </div>
-
-        </div>
-
-      </section>
+      </div>
 
     </main>
   );
