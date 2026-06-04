@@ -2,7 +2,7 @@ export default function PortfolioPage() {
 
   return (
 
-    <main className="relative min-h-[6000px]">
+    <main className="relative min-h-[1920px]">
 
       <video
         autoPlay
@@ -20,7 +20,7 @@ export default function PortfolioPage() {
         "
       >
         <source
-          src="/video/portfolio-bg.mp4"
+          src="/video/kling.mp4"
           type="video/mp4"
         />
       </video>

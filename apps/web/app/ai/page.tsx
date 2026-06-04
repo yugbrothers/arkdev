@@ -1,6 +1,6 @@
 export default function AIPage() {
   return (
-    <main className="relative min-h-screen overflow-hidden">
+    <main className="relative min-h-[1924px] overflow-hidden">
 
       <video
         autoPlay
@@ -17,7 +17,7 @@ export default function AIPage() {
         "
       >
         <source
-          src="/video/ai-bg.mp4"
+          src="/video/cycle.mp4"
           type="video/mp4"
         />
       </video>

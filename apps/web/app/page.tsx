@@ -5,8 +5,7 @@ import MusicPlayer from "@/components/media/MusicPlayer";
 import { useEffect, useState } from "react";
 
 const videos = [
-  "/videos/formula2aldev.mp4",
-  "/videos/formulabikealdev1.mp4"
+  "/video/clouds.mp4"
 ];
 export default function HomePage() {
   const [videoIndex, setVideoIndex] =
@@ -23,7 +22,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <main className="relative h-screen">
+    <main className="relative min-h-[4236px]">
       <video
         key={videos[videoIndex]}
         autoPlay
@@ -56,7 +55,7 @@ export default function HomePage() {
         className="
         relative
         z-10
-        h-screen
+        min-h-[4236px]
         flex
         flex-col
         items-center
