@@ -48,6 +48,7 @@ export default function Navbar() {
               <a href="/workspace">Workspace</a>
               <a href="/showcase">Showcase</a>
               <a href="/projects">Projects</a>
+              <a href="/teams">Teams</a>
             </div>
           </div>
 

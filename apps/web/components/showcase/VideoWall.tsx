@@ -1,14 +1,15 @@
 export default function VideoWall() {
 
   const videos = [
-    "/reference/videos/frontier.mp4",
-    "/reference/videos/yakudoh.mp4",
-    "/reference/videos/basta.mp4",
-    "/reference/videos/redandgreen.mp4"
+    "/video/clouds.mp4",
+    "/video/kling.mp4",
+    "/video/cycle.mp4",
+    "/video/musicgen.mp4"
   ];
 
   return (
     <section className="py-24 px-8">
+
       <h2 className="text-5xl font-black mb-10">
         Motion Showcase
       </h2>
@@ -28,6 +29,7 @@ export default function VideoWall() {
             loop
             playsInline
             className="
+            w-full
             rounded-3xl
             ark-hover-card
             "
@@ -39,6 +41,7 @@ export default function VideoWall() {
           </video>
         ))}
       </div>
+
     </section>
   );
 }
