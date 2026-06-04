@@ -2,44 +2,32 @@
 
 import { useEffect, useState } from "react";
 
-import PromptForm from "@/components/studio/PromptForm";
-import AssetLibrary from "@/components/studio/AssetLibrary";
-import { GeneratedAsset } from "@/components/studio/types";
-
 export default function StudioAIPage() {
 
-  const [assets,setAssets] = useState<GeneratedAsset[]>([]);
+  const [images,setImages] = useState([]);
+  const [music,setMusic] = useState([]);
+  const [videos,setVideos] = useState([]);
 
-  useEffect(() => {
+  useEffect(()=>{
+
     fetch("/api/studio/assets")
-      .then(r => r.json())
-      .then(setAssets)
-      .catch(console.error);
-  }, []);
+      .then(r=>r.json())
+      .then(setImages);
 
-  function addAsset(
-    image:string,
-    prompt:string
-  ) {
+    fetch("/api/music-assets")
+      .then(r=>r.json())
+      .then(setMusic);
 
-    const asset:GeneratedAsset = {
-      id: crypto.randomUUID(),
-      image,
-      prompt,
-      createdAt:
-        new Date().toLocaleString()
-    };
+    fetch("/api/video-assets")
+      .then(r=>r.json())
+      .then(setVideos);
 
-    setAssets(prev => [
-      asset,
-      ...prev
-    ]);
-  }
+  },[]);
 
   return (
-    <main className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-8">
+    <main className="max-w-7xl mx-auto px-4 py-8">
 
-      <div className="mb-10 text-center">
+      <div className="text-center mb-12">
 
         <div className="text-6xl mb-4">
           🎬
@@ -50,20 +38,86 @@ export default function StudioAIPage() {
         </h1>
 
         <p className="mt-4 text-xl opacity-80">
-          Create Images • Music • Videos
+          Unified Creator Dashboard
         </p>
 
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid gap-6 md:grid-cols-3">
 
-        <PromptForm
-          onImageGenerated={addAsset}
-        />
+        <div className="rounded-3xl border p-6">
+          <h2 className="text-xl font-bold">
+            Images
+          </h2>
 
-        <AssetLibrary
-          assets={assets}
-        />
+          <p className="text-5xl font-black mt-4">
+            {images.length}
+          </p>
+        </div>
+
+        <div className="rounded-3xl border p-6">
+          <h2 className="text-xl font-bold">
+            Music
+          </h2>
+
+          <p className="text-5xl font-black mt-4">
+            {music.length}
+          </p>
+        </div>
+
+        <div className="rounded-3xl border p-6">
+          <h2 className="text-xl font-bold">
+            Videos
+          </h2>
+
+          <p className="text-5xl font-black mt-4">
+            {videos.length}
+          </p>
+        </div>
+
+      </div>
+
+      <div className="grid gap-6 mt-10 lg:grid-cols-2">
+
+        <div className="rounded-3xl border p-6">
+
+          <h2 className="text-xl font-bold mb-4">
+            Creator Workflow
+          </h2>
+
+          <div className="space-y-4">
+
+            <a href="/studio-ai" className="block border rounded-xl p-4">
+              Create Images
+            </a>
+
+            <a href="/music-gen" className="block border rounded-xl p-4">
+              Create Music
+            </a>
+
+            <a href="/video-gen" className="block border rounded-xl p-4">
+              Create Videos
+            </a>
+
+          </div>
+
+        </div>
+
+        <div className="rounded-3xl border p-6">
+
+          <h2 className="text-xl font-bold mb-4">
+            Export Center
+          </h2>
+
+          <p>
+            Music Assets: {music.length}
+          </p>
+
+          <p>
+            Video Assets: {videos.length}
+          </p>
+
+        </div>
 
       </div>
 
