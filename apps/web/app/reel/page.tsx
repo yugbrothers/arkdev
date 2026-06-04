@@ -1,16 +1,20 @@
-import fs from "fs";
-import path from "path";
-
 export default function ReelPage() {
 
-  const videoDir =
-    path.join(
-      process.cwd(),
-      "public/reference/videos"
-    );
-
-  const videos =
-    fs.readdirSync(videoDir);
+  const videos = [
+    "clouds.mp4",
+    "kling.mp4",
+    "cycle.mp4",
+    "musicgen.mp4",
+    "videogen.mp4",
+    "trainstring.mp4",
+    "spark.mp4",
+    "dragon.mp4",
+    "eagle.mp4",
+    "butterfly.mp4",
+    "beach.mp4",
+    "cyclone.mp4",
+    "avatar.mp4"
+  ];
 
   return (
     <main className="pt-28 px-8">
@@ -23,13 +27,10 @@ export default function ReelPage() {
           <video
             key={video}
             controls
-            className="
-            w-full
-            rounded-3xl
-            "
+            className="w-full rounded-3xl"
           >
             <source
-              src={`/reference/videos/${video}`}
+              src={`/video/${video}`}
               type="video/mp4"
             />
           </video>
