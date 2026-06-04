@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import PromptForm from "@/components/studio/PromptForm";
 import AssetLibrary from "@/components/studio/AssetLibrary";
@@ -9,6 +9,13 @@ import { GeneratedAsset } from "@/components/studio/types";
 export default function StudioAIPage() {
 
   const [assets,setAssets] = useState<GeneratedAsset[]>([]);
+
+  useEffect(() => {
+    fetch("/api/studio/assets")
+      .then(r => r.json())
+      .then(setAssets)
+      .catch(console.error);
+  }, []);
 
   function addAsset(
     image:string,
