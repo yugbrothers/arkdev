@@ -1,6 +1,5 @@
 "use client";
 
-import NotificationBell from "@/components/notifications/NotificationBell";
 import MobileDrawer from "@/components/mobile/MobileDrawer";
 
 export default function Navbar() {
@@ -29,16 +28,7 @@ export default function Navbar() {
         justify-between
         "
       >
-        <a
-          href="/"
-          className="
-          text-2xl md:text-3xl lg:text-4xl
-          font-black
-          ark-logo
-          "
-        >
-          ArkDev
-        </a>
+        <div></div>
 
         <nav
           className="
@@ -92,7 +82,7 @@ export default function Navbar() {
           <a href="/about">About</a>
         </nav>
 
-        <div className="flex items-center gap-4"><MobileDrawer /><NotificationBell /></div>
+        <div className="flex items-center gap-4"><MobileDrawer /></div>
       </div>
     </header>
   );

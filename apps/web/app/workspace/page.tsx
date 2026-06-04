@@ -1,43 +1,114 @@
-import WorkspaceWizard from "@/components/workspace/WorkspaceWizard";
-import FileManager from "@/components/workspace/FileManager";
-import { getWorkspaces } from "@/lib/api";
-
-export default async function WorkspacePage() {
-  const workspaces =
-    await getWorkspaces();
+export default function WorkspacePage() {
 
   return (
-    <main className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-6">
+    <main className="max-w-7xl mx-auto px-4 py-8">
 
-      <WorkspaceWizard />
-
-      <FileManager />
-      <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-        Workspaces
+      <h1 className="text-5xl font-black mb-10">
+        ARK Startup Workspace
       </h1>
 
-      <div className="grid gap-6">
-        {workspaces.map((workspace:any) => (
-          <div
-            key={workspace.id}
-            className="
-            rounded-3xl
-            border
-            border-white/10
-            bg-white/5
-            p-4 md:p-6 lg:p-8
-            "
-          >
-            <h2 className="text-2xl font-bold">
-              {workspace.name}
-            </h2>
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 
-            <p className="opacity-70 mt-3">
-              {workspace.id}
-            </p>
-          </div>
-        ))}
+        <div className="rounded-3xl border p-6">
+          <h2 className="font-bold text-xl">
+            Startup Overview
+          </h2>
+          <p className="mt-4">
+            AI Creator Platform
+          </p>
+        </div>
+
+        <div className="rounded-3xl border p-6">
+          <h2 className="font-bold text-xl">
+            Product Status
+          </h2>
+          <p className="mt-4">
+            Active Development
+          </p>
+        </div>
+
+        <div className="rounded-3xl border p-6">
+          <h2 className="font-bold text-xl">
+            Completion %
+          </h2>
+          <p className="mt-4 text-4xl font-black">
+            75%
+          </p>
+        </div>
+
+        <div className="rounded-3xl border p-6">
+          <h2 className="font-bold text-xl">
+            Active Features
+          </h2>
+          <p className="mt-4">
+            Studio, MusicGen, VideoGen
+          </p>
+        </div>
+
+        <div className="rounded-3xl border p-6">
+          <h2 className="font-bold text-xl">
+            Deployment Status
+          </h2>
+          <p className="mt-4">
+            Live on Render
+          </p>
+        </div>
+
+        <div className="rounded-3xl border p-6">
+          <h2 className="font-bold text-xl">
+            Portfolio
+          </h2>
+          <p className="mt-4">
+            ArkDev Platform
+          </p>
+        </div>
+
+        <div className="rounded-3xl border p-6">
+          <h2 className="font-bold text-xl">
+            Founder
+          </h2>
+          <p className="mt-4">
+            Premchand Sharma
+          </p>
+        </div>
+
+        <div className="rounded-3xl border p-6">
+          <h2 className="font-bold text-xl">
+            Team Members
+          </h2>
+          <p className="mt-4">
+            Core Development Team
+          </p>
+        </div>
+
+        <div className="rounded-3xl border p-6">
+          <h2 className="font-bold text-xl">
+            Roles
+          </h2>
+          <p className="mt-4">
+            Founder • Developer • Product
+          </p>
+        </div>
+
       </div>
+
+      <div className="rounded-3xl border p-6 mt-8">
+
+        <h2 className="text-2xl font-bold mb-4">
+          Roadmap
+        </h2>
+
+        <ul className="space-y-3">
+          <li>✓ Studio AI</li>
+          <li>✓ MusicGen</li>
+          <li>✓ VideoGen</li>
+          <li>◻ Real Music Generation</li>
+          <li>◻ Real Video Generation</li>
+          <li>◻ Publishing Pipeline</li>
+        </ul>
+
+      </div>
+
     </main>
   );
 }
