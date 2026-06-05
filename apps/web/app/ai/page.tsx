@@ -7,6 +7,7 @@ export default function AIPage() {
         muted
         loop
         playsInline
+        preload="auto"
         className="
         fixed
         inset-0
@@ -17,7 +18,7 @@ export default function AIPage() {
         "
       >
         <source
-          src="/videos/butterfly.mp4"
+          src="/videos/space.mp4"
           type="video/mp4"
         />
       </video>

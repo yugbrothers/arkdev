@@ -9,6 +9,7 @@ export default function PortfolioPage() {
         muted
         loop
         playsInline
+        preload="auto"
         className="
         absolute
         top-0
@@ -20,7 +21,7 @@ export default function PortfolioPage() {
         "
       >
         <source
-          src="/videos/butterfly.mp4"
+          src="/videos/submarine.mp4"
           type="video/mp4"
         />
       </video>
