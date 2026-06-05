@@ -1,6 +1,6 @@
 export default function AboutPage() {
   return (
-    <main className="relative min-h-[1924px] overflow-hidden">
+    <main className="relative min-h-screen overflow-hidden">
 
       <video
         autoPlay

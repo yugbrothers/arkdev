@@ -2,7 +2,7 @@ export default function PortfolioPage() {
 
   return (
 
-    <main className="relative min-h-[1920px]">
+    <main className="relative min-h-screen">
 
       <video
         autoPlay

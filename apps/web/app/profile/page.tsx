@@ -65,7 +65,7 @@ export default function ProfilePage(){
 
   return(
 
-    <main className="relative min-h-[1924px] overflow-hidden">
+    <main className="relative min-h-screen overflow-hidden">
 
       <video autoPlay muted loop playsInline className="fixed inset-0 w-full h-full object-cover -z-10">
         <source src="/videos/butterfly.mp4" type="video/mp4" />
