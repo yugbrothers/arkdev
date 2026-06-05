@@ -1,6 +1,7 @@
 "use client";
 
 import MobileDrawer from "@/components/mobile/MobileDrawer";
+import ThemeToggle from "@/components/ui/theme-toggle";
 
 export default function Navbar() {
   return (
@@ -28,7 +29,18 @@ export default function Navbar() {
         justify-between
         "
       >
-        <div></div>
+        
+<div className="flex items-center gap-3">
+  <img
+    src="/arkdev-logo.svg"
+    alt="ArkDev"
+    className="h-10 w-10"
+  />
+  <span className="text-2xl font-black">
+    ArkDev
+  </span>
+</div>
+
 
         <nav
           className="
@@ -84,7 +96,7 @@ export default function Navbar() {
           <a href="/about">About</a>
         </nav>
 
-        <div className="flex items-center gap-4"><MobileDrawer /></div>
+        <div className="flex items-center gap-4"><ThemeToggle /><MobileDrawer /></div>
       </div>
     </header>
   );

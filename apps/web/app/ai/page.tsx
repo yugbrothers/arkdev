@@ -17,7 +17,7 @@ export default function AIPage() {
         "
       >
         <source
-          src="/video/cycle.mp4"
+          src="/videos/butterfly.mp4"
           type="video/mp4"
         />
       </video>

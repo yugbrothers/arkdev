@@ -10,7 +10,7 @@ export default function AboutPage() {
         className="fixed inset-0 w-full h-full object-cover -z-10"
       >
         <source
-          src="/video/beach.mp4"
+          src="/videos/butterfly.mp4"
           type="video/mp4"
         />
       </video>

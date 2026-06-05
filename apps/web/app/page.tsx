@@ -5,7 +5,7 @@ import MusicPlayer from "@/components/media/MusicPlayer";
 import { useEffect, useState } from "react";
 
 const videos = [
-  "/video/clouds.mp4"
+  "/videos/butterfly.mp4"
 ];
 export default function HomePage() {
   const [videoIndex, setVideoIndex] =

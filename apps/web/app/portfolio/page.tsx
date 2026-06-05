@@ -20,7 +20,7 @@ export default function PortfolioPage() {
         "
       >
         <source
-          src="/video/kling.mp4"
+          src="/videos/butterfly.mp4"
           type="video/mp4"
         />
       </video>

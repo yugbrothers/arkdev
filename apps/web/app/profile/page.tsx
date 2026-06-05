@@ -68,7 +68,7 @@ export default function ProfilePage(){
     <main className="relative min-h-[1924px] overflow-hidden">
 
       <video autoPlay muted loop playsInline className="fixed inset-0 w-full h-full object-cover -z-10">
-        <source src="/video/butterfly.mp4" type="video/mp4" />
+        <source src="/videos/butterfly.mp4" type="video/mp4" />
       </video>
 
       <div className="absolute inset-0 -z-10" style={{background: 'var(--brand-overlay, rgba(0,0,0,0.6))'}} />
