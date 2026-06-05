@@ -15,7 +15,7 @@ export default function HomePage() {
         className="absolute inset-0 w-full h-full object-cover"
       >
         <source
-          src="/videos/space2.mp4"
+          src="/videos/submarine.mp4"
           type="video/mp4"
         />
       </video>

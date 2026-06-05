@@ -21,7 +21,7 @@ export default function PortfolioPage() {
         "
       >
         <source
-          src="/videos/submarine.mp4"
+          src="/videos/submerge.mp4"
           type="video/mp4"
         />
       </video>
