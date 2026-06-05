@@ -25,98 +25,26 @@ export default function StudioAIPage() {
   },[]);
 
   return (
-    <main className="max-w-7xl mx-auto px-4 py-8">
+    <main className="relative min-h-screen overflow-hidden">
 
-      <div className="text-center mb-12">
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        className="fixed inset-0 w-full h-full object-cover -z-10"
+      >
+        <source src="/videos/space2.mp4" type="video/mp4" />
+      </video>
 
-        <div className="text-6xl mb-4">
-          🎬
-        </div>
+      <div className="absolute inset-0 bg-black/60 -z-10" />
 
-        <h1 className="text-5xl font-black">
-          Ark Studio AI
-        </h1>
+      <div className="max-w-7xl mx-auto px-4 py-24">
 
-        <p className="mt-4 text-xl opacity-80">
-          Unified Creator Dashboard
-        </p>
-
-      </div>
-
-      <div className="grid gap-6 md:grid-cols-3">
-
-        <div className="rounded-3xl border p-6">
-          <h2 className="text-xl font-bold">
-            Images
-          </h2>
-
-          <p className="text-5xl font-black mt-4">
-            {images.length}
-          </p>
-        </div>
-
-        <div className="rounded-3xl border p-6">
-          <h2 className="text-xl font-bold">
-            Music
-          </h2>
-
-          <p className="text-5xl font-black mt-4">
-            {music.length}
-          </p>
-        </div>
-
-        <div className="rounded-3xl border p-6">
-          <h2 className="text-xl font-bold">
-            Videos
-          </h2>
-
-          <p className="text-5xl font-black mt-4">
-            {videos.length}
-          </p>
-        </div>
-
-      </div>
-
-      <div className="grid gap-6 mt-10 lg:grid-cols-2">
-
-        <div className="rounded-3xl border p-6">
-
-          <h2 className="text-xl font-bold mb-4">
-            Creator Workflow
-          </h2>
-
-          <div className="space-y-4">
-
-            <a href="/studio-ai" className="block border rounded-xl p-4">
-              Create Images
-            </a>
-
-            <a href="/music-gen" className="block border rounded-xl p-4">
-              Create Music
-            </a>
-
-            <a href="/video-gen" className="block border rounded-xl p-4">
-              Create Videos
-            </a>
-
-          </div>
-
-        </div>
-
-        <div className="rounded-3xl border p-6">
-
-          <h2 className="text-xl font-bold mb-4">
-            Export Center
-          </h2>
-
-          <p>
-            Music Assets: {music.length}
-          </p>
-
-          <p>
-            Video Assets: {videos.length}
-          </p>
-
+        <div className="text-center mb-12">
+          <div className="text-6xl mb-4">🎬</div>
+          <h1 className="text-5xl font-black">Ark Studio AI</h1>
         </div>
 
       </div>

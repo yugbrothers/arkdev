@@ -62,7 +62,22 @@ export default function VideoGenPage() {
   },[]);
 
   return (
-    <main className="max-w-7xl mx-auto px-4 py-8">
+    <main className="relative min-h-screen overflow-hidden">
+
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        className="fixed inset-0 w-full h-full object-cover -z-10"
+      >
+        <source src="/videos/race.mp4" type="video/mp4" />
+      </video>
+
+      <div className="absolute inset-0 bg-black/60 -z-10" />
+
+      <div className="max-w-7xl mx-auto px-4 py-24">
 
       <h1 className="text-5xl font-black mb-4">
         Ark VideoGen
@@ -149,6 +164,8 @@ export default function VideoGenPage() {
         </section>
 
       </div>
+
+          </div>
 
     </main>
   );

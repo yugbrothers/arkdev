@@ -28,9 +28,9 @@ export default function PortfolioPage() {
 
       <div className="absolute inset-0 bg-black/55 -z-10" />
 
-      <div className="max-w-7xl mx-auto px-6 py-32">
+      <div className="max-w-7xl mx-auto px-6 py-20">
 
-        <section className="mb-[700px]">
+        <section className="mb-12">
           <h1 className="text-8xl font-black">
             ARK PORTFOLIO
           </h1>
@@ -40,31 +40,31 @@ export default function PortfolioPage() {
           </p>
         </section>
 
-        <section className="mb-[700px]">
+        <section className="mb-12">
           <h2 className="text-5xl font-bold mb-8">
             Featured Products
           </h2>
         </section>
 
-        <section className="mb-[700px]">
+        <section className="mb-12">
           <h2 className="text-5xl font-bold mb-8">
             AI Systems
           </h2>
         </section>
 
-        <section className="mb-[700px]">
+        <section className="mb-12">
           <h2 className="text-5xl font-bold mb-8">
             Startup Journey
           </h2>
         </section>
 
-        <section className="mb-[700px]">
+        <section className="mb-12">
           <h2 className="text-5xl font-bold mb-8">
             Technical Stack
           </h2>
         </section>
 
-        <section className="mb-[700px]">
+        <section className="mb-12">
           <h2 className="text-5xl font-bold mb-8">
             Hiring & Contact
           </h2>
