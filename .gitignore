@@ -11,7 +11,5 @@ coverage
 videos/
 
 # Local backups
-# macOS metadata
-._*
-**/.DS_Store
-*.DS_Store
+*.primary*.backup
+
